@@ -1,0 +1,9 @@
+*.bak
+*.dvi
+*.gz
+*.log
+*.toc
+*.aux
+*.out
+*.DS_Store
+lock
