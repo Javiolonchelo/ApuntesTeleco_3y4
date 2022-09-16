@@ -1,0 +1,156 @@
+\documentclass[10pt]{book}
+
+
+\input{../../Archivos comunes/Preamble.tex} % Se incluye el preámbulo
+
+\title{\Huge Propagación de ondas\\\huge Apuntes de clase}
+\author{Javier Rodrigo López}
+\date{\today}
+
+\begin{document}
+
+% Este comando crea el título
+\maketitle
+
+% Este comando crea el índice
+\tableofcontents
+
+
+\newpage
+
+\chapter*{Presentación}
+
+Pablo Merodio (grupo de tarde) \href{mailto:pablo.merodio@upm.es}{pablo.merodio@upm.es} a Pilar, explicando exhaustivamente el motivo. Tendrán una duración máxima de 20 minutos. El horario de las tutorías se puede encontrar en Moodle o en la Intranet. Hay que indicar 3 opciones para las tutorías.
+
+Hay que animarse a contestar las dudas de foro, aunque después de un tiempo contestarán los profesores.
+
+Primer parcial (7 de noviembre), tiene nota mínima de 3/10. Según la nota que se obtenga, se puede decidir presentarse al examen global en lugar del segundo parcial.
+
+El examen extraordinario no ``guarda'' parciales. Es decir, cae el temario completo y nota mínima de 5/10.
+
+\newpage
+
+\chapter{Operadores vectoriales}
+\section{Gradiente de un campo escalar}
+
+\section{Sistemas de coordenadas ortogonales}
+
+Los sistemas de coordenadas sirven para caracterizar unívocamente cualquier punto del espacio mediante una terna de números.
+
+Los \textbf{sistemas ortogonales} son los sistemas de vectores unitarios (de módulo 1) que son perpendiculares entre sí.
+
+Las coordenadas cartesianas son representadas por $\left( x,y,z \right)$.
+\[\left\lbrace \begin{matrix}
+    -\infty < x < \infty \\
+    -\infty < y < \infty \\
+    -\infty < z < \infty
+  \end{matrix} \right.\]
+
+\[ \vec{r} = x \vv*{u}{x} + y \vv*{u}{y} + \vv*{u}{z} \]
+
+Donde $\vv*{u}{x}$ es un vector unitario en la dirección del eje $x$, y viceversa.
+
+\begin{align*}
+                        & \text{Diferencial de longitud}   & \vec{\dd l}  & = \dd x \vv*{u}{x} + \dd y \vv*{u}{y} + \dd z \vv*{u}{z} \\
+                        & \text{Diferencial de volumen}    & \vec{\dd v}  & = \dd x  \dd y  \dd z                                    \\[5 pt]
+                        & \text{Diferencial de superficie} & \left\lbrace
+  \begin{matrix*}[l]
+    x = \text{cte.} \\
+    y = \text{cte.} \\
+    z = \text{cte.}
+  \end{matrix*} \right. &
+  \begin{matrix*}[l]
+    \quad \rightarrow \vec{\dd S} = \pm \dd y \dd z \vv*{u}{x}\\
+    \quad \rightarrow \vec{\dd S} = \pm \dd x \dd z \vv*{u}{y}\\
+    \quad \rightarrow \vec{\dd S} = \pm \dd x \dd y \vv*{u}{z}
+  \end{matrix*}                                                                          \\
+\end{align*}
+
+El sistema de \textbf{coordenadas cilíndricas}. $\rho$ es la distancia al eje $z$. $\varphi$ es el ángulo con respecto al semiplano $xz$ con $x$ positivo.
+
+\[\left\lbrace \begin{matrix}
+    0 < \rho < \infty \\
+    0 \leq y < 2\pi   \\
+    -\infty < z < \infty
+  \end{matrix} \right. \]
+
+El vector unitario $\vv*{u}{z}$ es igual que en las coordenadas cartesianas. Sin embargo, debemos definir los otros dos. El vector $\vv*{u}{\rho}$
+
+\[ \left.
+  \begin{matrix}
+    -\infty & < x & < \infty \\
+    -\infty & < y & < \infty \\
+    -\infty & < z & < \infty
+  \end{matrix} \right\rbrace \]
+
+\begin{align*}
+                           & \text{Diferencial de longitud}   & \vec{\dd l}  & = \dd \rho \vv*{u}{\rho} + \rho\dd \varphi \vv*{u}{\varphi} + \dd z \vv*{u}{z} \\
+                           & \text{Diferencial de volumen}    & \vec{\dd v}  & = \rho \dd \rho \dd\varphi \dd z                                               \\[5 pt]
+                           & \text{Diferencial de superficie} & \left\lbrace
+  \begin{matrix*}[l]
+    \rho = \text{cte.} \\
+    \varphi = \text{cte.} \\
+    z = \text{cte.}
+  \end{matrix*} \right. &
+  \begin{matrix*}[l]
+    \quad \rightarrow \vec{\dd S} = \pm \rho \dd \varphi \dd z \vv*{u}{}\\
+    \quad \rightarrow \vec{\dd S} = \pm \dd x \dd z \vv*{u}{y}\\
+    \quad \rightarrow \vec{\dd S} = \pm \dd x \dd y \vv*{u}{z}
+  \end{matrix*}                                                                                         \\
+\end{align*}
+
+El sistema de \textbf{coordenadas esféricas}. $r$ es la distancia al origen de coordenadas. $\rho$ es el ángulo con respecto al eje $xz$ con $x$ positivo.
+
+\[\left\lbrace \begin{matrix}
+    0 < r < \infty      \\
+    0 \leq \theta < \pi \\
+    0 \leq \varphi < 2\pi
+  \end{matrix} \right. \]
+
+El vector unitario $\vv*{u}{z}$ es igual que en las coordenadas cartesianas. Sin embargo, debemos definir los otros dos. El vector $\vv*{u}{\rho}$
+
+\[ \left.
+  \begin{matrix}
+    -\infty & < x & < \infty \\
+    -\infty & < y & < \infty \\
+    -\infty & < z & < \infty
+  \end{matrix} \right\rbrace \]
+
+El vector $\vv*{u}{\theta}$ se dibuja como perpendicular a $\vv*{u}{r}$, con dirección al eje $z$ y en sentido de crecimiento positivo.
+
+\begin{align*}
+                           & \text{Diferencial de longitud}   & \vec{\dd l}  & = \dd r \vv*{u}{r} + r\dd \theta \vv*{u}{\theta} +r \sen \left( \theta \right) \dd \theta \vv*{u}{\theta} \\
+                           & \text{Diferencial de volumen}    & \vec{\dd v}  & = r^2 \sen \left( \theta \right) \dd                                                                      \\[5 pt]
+                           & \text{Diferencial de superficie} & \left\lbrace
+  \begin{matrix*}[l]
+    \rho = \text{cte.} \\
+    \varphi = \text{cte.} \\
+    z = \text{cte.}
+  \end{matrix*} \right. &
+  \begin{matrix*}[l]
+    \quad \rightarrow \vec{\dd S} = \pm \rho \dd \varphi \dd z \vv*{u}{}\\
+    \quad \rightarrow \vec{\dd S} = \pm \dd x \dd z \vv*{u}{y}\\
+    \quad \rightarrow \vec{\dd S} = \pm \dd x \dd y \vv*{u}{z}
+  \end{matrix*}                                                                                                                    \\
+\end{align*}
+
+Para pasar de coordenadas cartesianas a cilíndricas:
+\begin{enumerate}
+  \item $z = z$
+  \item $ 3$
+\end{enumerate}
+
+Algo es \textbf{constante} si no varía en el tiempo. Algo es \textbf{uniforme} si no varía en el espacio.
+
+\section{Operador Nabla}
+\section{Gradiente de un campo escalar}
+\section{Algo más...}
+\section{Divergencia y rotacional de un campo vectorial}
+\section{Teorema de Helmholzt}
+\chapter{Ondas acústicas planas}
+\chapter{Ondas acústicas esféricas}
+\chapter{Reflexión y refracción de ondas acústicas}
+
+
+
+\end{document}

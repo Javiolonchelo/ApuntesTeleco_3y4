@@ -1,0 +1,67 @@
+\documentclass[10pt]{book}
+
+
+\input{../../Archivos comunes/Preamble.tex} % Se incluye el preámbulo
+
+\title{\Huge Sistemas operativos\\\huge Apuntes de clase}
+\author{Javier Rodrigo López}
+\date{\today}
+
+\begin{document}
+
+% Este comando crea el título
+\maketitle
+
+% Este comando crea el índice
+\tableofcontents
+
+
+\newpage
+
+\newpage
+
+\chapter{Introducción a los sistemas operativos}
+
+\section{Visión completa de un ordenador}
+
+El sistema operativo es el único software que puede interactuar con el hardware. El usuario interactúa con las aplicaciones, las cuales utilizan al sistema operativo como intermediario entre ellas y el hardware.
+
+Entre las utilidades que tiene el sistema operativo, encontramos:
+\begin{itemize}
+  \item Ocultar el hardware y, por tanto, la complejidad que tiene su uso.
+  \item Operar como gestor de recursos. Con recursos, nos referimos a la memoria, el procesador, dispositivos de entrada/salida...
+  \item Permite la multiplexación en tiempo y espacio.
+  \item Gestión eficiente de los conflictos entre procesos.
+  \item Control del uso indebido del hardware.
+\end{itemize}
+
+A pesar de esta larga enumeración, el objetivo principal de un sistema operativo es \textbf{gestionar los recursos del sistema informático}. Como objetivos secundarios, que tenga una interfaz de uso amigable, que sea eficiente, fiable...
+
+El núcleo del sistema operativo, también llamado \textbf{kernel}, es el que gestiona todos los recursos. Los \textbf{programas del sistema} son los programas que incluye el fabraciante del sistema operativo para facilitar el uso a los usuarios. El \textbf{shell}, es la capa de aplicaciones con las que interactúa el usuario. Pueden hacer uso de una CLI (\textit{Command Line Interface}), una GUI (\textit{Graphic User Interface}) o una interfaz por lotes \textit{batch}.
+
+\chapter{Gestión del procesador}
+
+
+\chapter{Gestión de la memoria}
+
+
+\chapter{Concurrencia}
+
+
+\chapter{Gestión de la entrada/salida}
+
+
+\chapter{Sistemas de ficheros}
+
+\appendix
+
+
+\chapter{Instalación de FreeBSD sobre VMware}
+
+\chapter{Entorno de trabajo: mandatos comunes de Unix + programación}
+
+\chapter{Manejo de procesos (en C)}
+
+\chapter{Hilos y concurrencia (en Java)}
+
+\end{document}
