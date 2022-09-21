@@ -1,4 +1,4 @@
-\documentclass[10pt]{article}
+\documentclass[10pt]{book}
 
 
 \input{../../Archivos comunes/Preamble.tex} % Se incluye el preámbulo
@@ -26,10 +26,89 @@ En el laboratorio, César Díaz \href{mailto:cesar.diaz@upm.es}{cesar.diaz@upm.e
 
 \chapter{Características de las señales de imagen y vídeo}
 
+\section{Formación de señal de imagen}
+
+En la etapa de captación, se ``lee'' la imagen convirtiéndola en una señal eléctrica que
+
+El CCD (\textit{Charge-Coupled Device}, que significa ``dispositivo de carga acoplada'') es un chip que contiene una matriz de fotodetectores donde cada uno de estos detectores corresponde a un píxel. Cada celda acumula un número de electrones proporcional a la intensidad de luz que le llega. Es posible que pase antes por un filtro, dependiendo si es para rojos, verdes o azules.
+
+La carga eléctrica es por tanto aproximadamente proporcional a la luminancia. Como los sensores pueden tener diferentes arquitecturas, se entiende el rango normalizado donde el 0 representa el negro y el 1 representa el blanco. Sin embargo, el rango de tensiones se corresponde con \SI{0}{\volt} para el negro y \SI{0.7}{\volt} para el blanco.
+
+\section{Temporización y sincronismos} \vspace*{5pt}
+
+\begin{itemize}
+  \item ¿Cómo distinguir las líneas de una imagen?
+  \item ¿Cómo saber dónde empieza y termina una imagen?
+  \item ¿Cómo sincronizar el vídeo en una pantalla?
+  \item ¿Cómo sincronizar luminancia y colores?
+\end{itemize}
+
+Los sincronismos son señales que alcanzan valores fuera del rango esperado para indicar al sistema que la línea de la imagen ha terminado y comienza una nueva.
+
+La \textbf{señal de sincronismo horizontal} se compone por:
+\begin{itemize}
+  \item Señal fija especial para indicar el comienzo de línea.
+  \item \textbf{Impulso de Sincronismo Horizontal (ISH)}, en un rango de tensiones diferente a la señal de brillo.
+  \item Un periodo especial de \textbf{borrado} que corresponde a \SI{0}{\volt}.
+\end{itemize}
+
+
+Los \textbf{barridos} son los escaneos del sensor para convertir la imagen en unidimensional.
+
+Dura \SI{64}{\micro\second} una línea de vídeo. Los primeros \SI{12}{\micro\second} corresponden con el borrado, de los cuales son \SI{4.7}{\micro\second} de ISH y \SI{10.5}{\micro\second} de valor nulo (\SI{0}{\volt}). La señal de línea dura los \SI{52}{\micro\second} restantes de la línea de vídeo.
+
+Estas duraciones son así porque es lo que se tarda en realizar un barrido y la vuelta al inicio. Esto sucede por los condicionantes que existían al inicio de esta tecnología. Aprovecharon lo que no puede ver el sistema visual humano para retransmitir exclusivamente lo esencial.
+
+\subsection{Sistema PAL}
+
+El sistema PAL (\textit{Phase Alternating Line}) utilizaba también una ``salva'' que hacía el sistema más estable.
+
+\subsection{Señal compuesta de videofrecuencia}
+
+\subsection{Frecuencia de cuadro y número de líneas}
+
+Vienen fijados por el sistema de televisión, que depende del país y la definición en la que se trabaje.
+
+\section{Sistema entrelazado}
+
+\subsection{Ancho de banda de una señal de vídeo}
+
+En la definición estándar \footnote{SD: \textit{Standard Definition}} la luminancia se transmite con un ancho de banda de \SI{6}{\mega\hertz}, mientras que las cromas utilizan \SI{3}{\mega\hertz}.
+
+\subsection{Progresivo Vs. Entrelazado}
+
+El envío de cuadros (imágenes enteras) correspondía al sistema progresivo. El envío de campos (medias imágenes) corresponde al sistema entrelazado, lo que permitía aumentar la frecuencia con la que se enviaban las imágenes, los canales necesitaban menos recursos porque era menos información.
+
+
+\section{Componentes de color}
+
+\section{Sistemas de alta definición HDTV}
+
+
 \chapter{Digitalización de y codificación sin pérdidas}
+
+\section{Muestreo y cuantificación de imágenes}
+
+\section{Interpolación y reconstrucción de imágenes}
+
+
 
 \chapter{Compresión: codificación con pérdidas}
 
+\section{Bases de la compresión de imágenes y vídeo}
+
+\section{Compresión de imágenes estáticas}
+
+\section{Bases de la compresión de imagen en movimiento}
+
+\section{Compresión de vídeo: Normas MPEG}
+
+
+
 \chapter{Codificación avanzada}
+
+\section{MPEG-4 AVC/H.264}
+
+\section{MPEG-4 Visual}
 
 \end{document}

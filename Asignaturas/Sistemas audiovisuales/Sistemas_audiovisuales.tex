@@ -50,8 +50,38 @@ El proceso de escaneo del sensor plano (bidimensional) es lo que nos permite tra
 
 \[ d = 42.5 \cdot \frac{D \text{ (pulgadas)}}{\text{nº de líneas}} \ \SI{}{\metre} \]
 
-Aunque estuviera desarrollado el sistema de televisión en alta definición
+Aunque estuviera desarrollado el sistema de televisión en alta definición, los canales no habrían permitido su transmisión por falta de capacidad.
 
+\subsection{Sistema Visual Humano}
+
+Los conos son estimulados por diferentes longitudes de onda, habiendo tres tipos y diferenciando respectivamente el rojo, el verde y el azul. Además, no podemos distinguir si la luz proviene de una fuente única o de la superposición de varias fuentes.
+
+\subsubsection{Primera Ley de Grassman}
+
+Cualquier color que podemos percibir puede ser obtenido mediante la mezcla de luz roja, verde y azul (colores primarios), en una cierta proporción de intensidad.
+
+\subsection{Memoria visual o integración temporal}
+
+En promedio, el ojo es incapaz de distinguir varios sucesos luminosos que ocurran con un intervalo menor de \SI{50}{\milli\second}. Al comienzo de la tecnología de la televisión, algunos convenios adquirieron una frecuencia de 25 fotogramas por segundo, otros de 30. Esto sobrepasa el mínimo necesario para la sensación de continuidad, pero ayudaba a la reducción del \textit{flickering}\footnotetext{Sensación de parpadeo producida al ver vídeos con un bajo número de fps.}.
+
+Sin embargo, la incapacidad de los canales de la época para un ancho de banda tan grande llevó a la elaboración de la tecnología de vídeo entrelazado. El vídeo era transmitido por campos (medio fotograma, conformado por las líneas pares o impares, de forma alterna) en lugar de por cuadros (fotograma entero, un solo campo). El método de barrido de cuadros se denomina \textbf{barrido progresivo}, mientras que el método de barrido de campos se denomina \textbf{barrido entrelazado}.
+
+Estos dos métodos de barrido son importantes a la hora de diseñar las señales de sincronismo.
+
+\subsection{Componentes de luminancia y crominancia}
+
+Tanto en captación como en reproducción, usaremos un espacio de color RGB. Sin embargo, las señales de producción y transmisión utilizan las componentes de luminancia (brillo, corresponde con la intensidad en la televisión en blanco y negro) y crominancia. La relación que tienen con el espacio RGB es la siguiente:
+\begin{align*}
+  Y    & = 0.2627R + 0.6780G + 0.0593B \\
+  C'_B & = \frac{B'-Y'}{1.8814}        \\
+  C'_R & = \frac{R'-Y'}{1.4746}
+\end{align*}
+
+Las componentes de crominancia valen 0 cuando la transmisión es monocromática. Por el funcionamiento del sistema visual humano, la luminancia $Y$ nos aporta más información en la imagen que la crominancia. Por ello se estableción el doble de ancho de banda para la luminancia que para cada componente de crominancia.
+
+\subsection{Calidad y ancho de banda de la señal de vídeo}
+
+El ancho de banda de las señales R, G y B se estableción en \SI{6}{\mega\hertz} teniendo en cuenta el número de líneas, la relación de aspecto y la frecuencia de cuadro. En componentes, la luminancia se estableció en \SI{6}{\mega\hertz} y los de crominancia en \SI{3}{\mega\hertz} cada uno.
 
 \chapter{Señales y formatos de audio y vídeo}
 

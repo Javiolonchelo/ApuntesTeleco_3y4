@@ -1,0 +1,54 @@
+\documentclass[10pt]{book}
+
+
+\input{../../Archivos comunes/Preamble.tex} % Se incluye el preámbulo
+
+\title{\Huge Ingeniería de Audio I\\\huge Apuntes de clase}
+\author{Javier Rodrigo López}
+\date{\today}
+
+\begin{document}
+
+% Este comando crea el título
+\maketitle
+
+% Este comando crea el índice
+\tableofcontents
+
+
+\newpage
+
+\chapter{Psicoacústica}
+
+El sonido es entendido como cualquier señal que se produzca en el entorno de \SI{20}{\hertz} a \SI{20}{\kilo\hertz}.
+
+La psicoacústica estudia lo que escuchamos subjetivamente.
+
+La localización espacial del sonido es controlada por los parámetros TD (Time Differencia) y LD (Level Difference). Se basa en la diferencia de distancia que recorre las ondas de la fuente sonora a un oído y otro.
+
+Dos señales son \textbf{coherentes} son aquellas que son iguales o tiene alguna diferencia independiente de la frecuencia (algún retraso, desfase, diferencia de nivel...).
+
+Cuando reproducimos una señal por un altavoz, es una señal monofónica. Si añadimos otro altavoz, la señal reproducida también podría ser monofónica. Al hablar de señal \textbf{estéreo} nos referimos a dos altavoces que reproducen dos señales no coherentes.
+
+\subsection{Ley del primer frente de onda}
+
+La señal que llega con mayor nivel y la que llega primera (menor retardo) es la que entendemos como posición real (concretamente, la posición del altavoz que la emite). La ley del primer frente de onda no sirve a partir del umbral de eco, que depende del tipo de señal que estemos escuchando.
+
+Cuando escuchamos dos señales coherentes en dos altavoces lo percibimos como un único sonido. Si no son coherentes, los entendemos como sonidos distintos.
+
+\chapter{Técnicas de sonido multicanal}
+
+\section{Codificación matricial}
+
+Se realiza cuando se graban multiples canales de audio para un número más limitado de altavoces.
+
+\section{Codifcación discreta}
+
+Como la mayoría de los sistemas exige compatibilidad estéreo, se deben tomar algunas medidas de \textit{Down-Mixing}.
+\begin{itemize}
+  \item Generando una mezcla independiente para cada sistema de reproducciónn deseado.
+  \item Generar algún algoritmo de mezcla, que puede empeorar la calidad de la mezcla significativamente.
+\end{itemize}
+
+
+\end{document}
