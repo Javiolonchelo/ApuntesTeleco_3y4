@@ -39,6 +39,12 @@ A pesar de esta larga enumeración, el objetivo principal de un sistema operativ
 
 El núcleo del sistema operativo, también llamado \textbf{kernel}, es el que gestiona todos los recursos. Los \textbf{programas del sistema} son los programas que incluye el fabraciante del sistema operativo para facilitar el uso a los usuarios. El \textbf{shell}, es la capa de aplicaciones con las que interactúa el usuario. Pueden hacer uso de una CLI (\textit{Command Line Interface}), una GUI (\textit{Graphic User Interface}) o una interfaz por lotes \textit{batch}.
 
+\section{Procesos}
+
+\subsection{Concepto de proceso}
+
+Un proceso es un programa en ejecución con un contexto que gestiona el núcleo. El contexto hace referencia a la información que necesita saber el sistema operativo para trabajar con él, como los registros que se están usando, la memoria donde está almacenado el código del proceso, la comunicación con otros procesos, un número de identificación... El contexto se guarda en lo que se denomina PCB. Hay un PCB por cada proceso.
+
 \chapter{Gestión del procesador}
 
 

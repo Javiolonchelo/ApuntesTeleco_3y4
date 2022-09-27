@@ -81,11 +81,57 @@ Las componentes de crominancia valen 0 cuando la transmisión es monocromática.
 
 \subsection{Calidad y ancho de banda de la señal de vídeo}
 
-El ancho de banda de las señales R, G y B se estableción en \SI{6}{\mega\hertz} teniendo en cuenta el número de líneas, la relación de aspecto y la frecuencia de cuadro. En componentes, la luminancia se estableció en \SI{6}{\mega\hertz} y los de crominancia en \SI{3}{\mega\hertz} cada uno.
+El ancho de banda de las señales R, G y B se estableción en \SI{6}{\mega\hertz} teniendo en cuenta el número de líneas, la relación de aspecto y la frecuencia de cuadro. En componentes, la luminancia se estableció en \SI{6}{\mega\hertz} y los de crominancia en \SI{3}{\mega\hertz} cada uno para SD, y \SI{36}{\mega\hertz} y \SI{18}{\mega\hertz} respectivamente para HD.
+
+\subsection{Cámaras de vídeo}
+
+Las cámaras de uso profesional suelen incorporar un prisma dicroico que separa la luz blanca en las longitudes de onda correspondientes al verde, al rojo y al azul. Habrá un CCD por cada componente, obteniendo así una mayor resolución efectiva y, por tanto, una mayor calidad.
+
+Las cámaras que no poseen esta estructura interna tienen otras formas de captar las tres señales sobre el sensor. Una muy común es el filtro Bayer, el cual está conformado por un mosaico de filtros verdes rojos y azules, de forma que cada píxel del sensor es estimulado por una sola longitud de onda. El resto de la información es obtenida mediante interpolación.
+
+También es común encontrar filtros anti-\textit{aliasing} colocados ante el filtro Bayer para evitar el solapamiento espectral espacial.
+
+Los transductores de luz a señal eléctrica (los sensores) son básicamente arrays de fotodiodos. Cada fotodiodo genera una carga rpoporcional a la luz incidente en ese píxel. Esta información analógica es escaneada mediante barridos del sensor y posteriormente digitalizada.
+
+Los sensores pueden ser principalmente de dos tecnologías: CCD y CMOS. Ambos son distribuidos como chips integrados que tendrán como características a tener en cuenta la sensibilidad, la resolución y la relación señal/ruido.
+
+\subsubsection{Ajustes de la cámara}
+
+\begin{itemize}
+  \item \textbf{Balance de blancos.} Aseguramos que el nivel máximo de señal coincide en los tres canales.
+  \item \textbf{Balance de negros.} Aseguramos que el nivel mínimo coincide en los tres canales.
+  \item \textbf{Ganancia.}
+  \item \textbf{Nivel de negro.}
+\end{itemize}
+
+Estos ajustes pueden ser ajustados ayudándose de un vectorscopio.
 
 \chapter{Señales y formatos de audio y vídeo}
 
 \section{Digitalización de las señales de audio y vídeo}
+
+La digitalización consiste en tres pasos fundamentales: \textbf{muestreo}, \textbf{cuantificación} y \textbf{codificación}.
+
+El muestreo consiste en tomar valores cada ciertos intervalos de tiempo, de modo que hemos discretizado la dimensión temporal. Sin embargo, los valores de cada muestra aún son analógicos. La cuantificación consiste en asignar a cada muestra un número de un rango establecido. La codificación se refiere a la binarización de dicho número.
+
+La cuantificación dependerá de los valores binarios que podemos almacenar. En otras palabras, del número de bits que tenga nuestro codificador, puesto que con 3 bits solo podremos cuantificar las muestras en 8 valores diferentes ($2^{3\text{ bits}} = 8$ valores posibles). Esto significa que estamos introduciendo un error de codificación.
+
+\begin{itemize}
+  \item \textbf{Codificación de fuente.} Compresión de la señal.
+  \item \textbf{Codificación de canal.} Protección de la señal ante distorsiones y otros errores. Consiste en añadir bits de redundancia y otros mecanismos similares.
+  \item \textbf{Codificación de línea.} Adapta la señal al medio, convirtiéndola en símbolos que podrán ser transmitidos por el canal (por ejemplo, una señal eléctrica).
+\end{itemize}
+
+El \textbf{audio} es una señal eléctrica que representa la variación de la presión sonora en función del tiempo.
+
+El \textbf{vídeo} es una señal eléctrica que representa la variación de la intensidad de luz en función del espacio (imagen) y del tiempo (vídeo).
+
+\subsection{Teorema de Nyquist}
+
+La frecuencia de muestreo ha de ser superior al doble de la máxima frecuencia que tenga la señal a muestrear.
+\[ f_s \geq 2 \cdot f_m \]
+
+Si no se cumple el teorema de Nyquist, se produce solapamiento espectral. Para solucionarlo podemos aumentar la frecuencia de muestreo o, si no es posible, introducir un filtro paso-bajo anti-\textit{aliasing} para ignorar las frecuencias que producirán esta distorsión espectral. Los filtros reales nos imponen escoger un balance entre la calidad del filtrado (un filtro muy selectivo es más caro) y la calidad del muestreo, según nuestras necesidades. Además, el efecto apertura nos puede atenuar algunas frecuencias en función de la duración del pulso (que idealmente debería ser una delta), ya que espectralmente es una multiplicación por una función sinc.
 
 \section{Codificación de la señal de audio}
 
