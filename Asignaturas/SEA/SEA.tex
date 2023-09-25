@@ -1,0 +1,248 @@
+\documentclass[10pt]{book}
+
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{babelbib}
+\usepackage{braket}
+\usepackage{caption}
+\usepackage{colortbl}
+\usepackage{rotating}
+\usepackage[table]{xcolor}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{esint}
+\usepackage{eso-pic}
+\usepackage{listings}
+\usepackage{lscape}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{subdepth}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{upgreek}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{vwcol}
+\usepackage{wallpaper}
+\usepackage{xfrac}
+\usepackage{physics}
+\usepackage[c]{esvect}
+\usepackage[utf8]{inputenc}
+\usepackage[fleqn]{nccmath}
+\usepackage[thicklines]{cancel}
+\usepackage[margin=2cm]{geometry}
+\usepackage[colorlinks=true,spanish]{hyperref}
+\usepackage[oldvoltagedirection]{circuitikz}
+\usepackage[greek,spanish,es-tabla,es-nodecimaldot,es-noindentfirst]{babel}
+\usepackage[symbol]{footmisc}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\sisetup{
+  per-mode = fraction,
+  detect-all,
+  exponent-product = \cdot
+}
+\hypersetup{
+  citecolor = blue,
+  linkcolor = blue,
+  urlcolor = blue,
+  pdfauthor = {Javier Rodrigo López}
+}
+\captionsetup[figure]{labelfont={bf},name={Figura},labelsep=period}
+\captionsetup[table]{labelfont={bf},name={Tabla},labelsep=period}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}[{\titlerule[0.05pt]}]
+\titlespacing{\section}{0pt}{2\parskip}{\parskip}
+\titlespacing{\subsection}{0pt}{\parskip}{0pt}
+\titlespacing{\subsubsection}{0pt}{\parskip}{0pt}
+\usepackage{enumitem}
+\setlist{before={\parskip=3pt}, after=\vspace{\baselineskip}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+\usepackage{booktabs}
+\usepackage{bigstrut}
+
+\renewcommand{\vec}{\vv}
+
+% Tipografía
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\rmdefault}{\sfdefault}
+
+% Para escribir decibelios SPL
+\DeclareSIUnit\dbspl{dB\ensuremath{_{\textnormal{SPL}}}}
+\DeclareSIUnit\dBlin{dB\ensuremath{_{\textnormal{Lin}}}}
+\DeclareSIUnit\dBA{dB\ensuremath{_{\textnormal{A}}}}
+
+
+\title{\Huge Sistemas electroacústicos\\\huge Apuntes de clase}
+\author{Javier Rodrigo López}
+\date{\today}
+
+\begin{document}
+
+% Este comando crea el título
+\maketitle
+
+% Este comando crea el índice
+\tableofcontents
+
+
+\newpage
+
+\section*{Presentación}
+
+Hay que venir a clase para ganar 1 punto extra.
+
+Las partes superadas tanto de teoría y laboratorio se guardan para convocatorias posteriores.
+
+\newpage
+
+
+
+\chapter{Altavoces}
+\section{Características de los altavoces}
+
+\subsection{Introducción a los altavoces}
+Un altavoz es un transductor emisor electro-mecánico-acústico (TEM).
+Tensión y corriente se traducirán en velocidad y fuerza. Velocidad y fuerza se transformarán en presión y caudal.
+Tensión \SI{}{\volt}
+Corriente \SI{}{\ampere}
+Fuerza \SI{}{\newton}
+Velocidad \SI{}{\metre\per\second}
+
+
+\subsection{Objetivos deseables}
+\begin{itemize}
+	\item \textbf{Respuesta en frecuencia plana.}
+	\item \textbf{Respuesta en frecuencia amplia.}
+	      \begin{itemize}
+		      \item Como mucho, un único altavoz puede llegar a cubrir 5 octavas.
+		      \item Un sistema de altavoces de 2 vías cubrirían razonablemente bien el rango entre \SI{	20}{\hertz} y \SI{12}{\kilo\hertz}.
+		      \item Un sistema de 3 vías la cubrirán mejor todavía.
+	      \end{itemize}
+	\item \textbf{Poca distorsión.} Los altavoces producen bastante distorsión.
+	\item \textbf{Buena respuesta a transitorios.} La respuesta a transitorios es especialmente mala para woofers.
+	\item \textbf{Eficiencia y rednimiento.} Los altavoces son muy poco eficientes por lo general, en torno al 5\% de rendimiento para radiación directa (altavoces de diafragma) y 25\% para radiación indirecta (altavoces de bocina).
+	\item \textbf{Directividad.} Esta caraterística depende del uso que se le dé al altavoz.
+\end{itemize}
+
+\subsection{Clasificación según la banda de trabajo}
+Altavoces de graves woofers < 500 Hz y subwoofers <100
+Altavoces de medios squeakers o midrange 500 a 5k
+Altavoces de agudos tweeters > 5k
+Altavoces de VHF Very High Frequency o UHF Ultra High Frequency > 15k
+Altavoces de banda ancha (altavoces elípticos, de doble cono y una sola vía...)
+Altavoces coaxiales de dos vías
+
+Como un sistema de altavoces puede tener varias vías, es necesario implementar filtros de cruces (\textit{croosover filters}).
+
+
+\subsection{Altavoces electrodinámicos}
+Los altavoces electrodinámicos se basan en la \textbf{Ley de Lenz}:
+\begin{equation} \label{eq:lenz}
+	\vec{f} = \int \vec{B} \times \Vec{i} \dd l
+\end{equation}
+De esta ecuación se deduce que necesitamos un imán que produzca un campo magnético potente y una corriente muy alta para generar una fuerza suficientemente grande.
+
+El conformador y el entrehierro se dedican a dirigir el calor generado en la bobina hacia las piezas metálicas. Para evitar que la bobina se queme se necesita una ventilación constante, y esto sucede de forma natural cuando se mueve. Si pasa una corriente a través de la bobina sin producir movimiento, se quema la bobina y queda inutilizado el altavoz.
+
+El diafragma o cono, que mueve el aire, también protege el interior del altavoz. Concretamente, evita que entre polvo y partículas de grasa al entrehierro.
+
+El elemento elástico se asegura que el número de espiras presente en el entrehierro sea constante cuando se mueve la bobina. La suspensión primaria es denominada araña.
+
+Las cargas en audio vienen desadaptadas en impedancia, para asegurar que la tensión entre equipos siempre sea la misma. Es decir, ampliar mucho la impedancia del altavoz para evitar que caiga tensión en la impedancia del equipo que excita al altavoz.
+
+Los altavoces suelen conectarse en paralelo a la salida del amplificador, para obtener una tensión igual en los bornes de cada altavoz. La impedancia equivalente será menor según añadamos altavoces en paralelo. Esto hay que tenerlo en cuenta, porque si la impedancia de carga disminuye y se parece a la impedancia del amplificador, es posible que se queme el amplificador.
+
+\subsection{Desplazamiento máximo del diafragma}
+\[ x_d (t) = C _{\textnormal{md}} f_d (t) \]
+
+Los altavoces ``duros'' tendrán $C _{\textnormal{md}}$ bajo, mientras que altavoces ``blandos'' tendrán $C _{\textnormal{md}}$ alto.
+
+El \textbf{desplazamiento máximo del altavoz antes de distorsión aparente} se describe con el símbolo $x _{\textnormal{máx}}$. El \textbf{desplazaiento de ruptura} es el desplazamiento a partir del cual el altavoz se rompe, y se describe con el símbolo $x _{\textnormal{rup}}$. Pasado este punto, la bobina se sale del entrehierro y deja de funcionar.
+
+\subsection{Especificaciones de un altavoz de bobina móvil}
+
+Las especificaciones se determinan mediante medición en cámara anecoica y en pantalla infinita\footnote{Una \textbf{pantalla infinita} es una separación del espacio acústico en dos subespacios acústicamente aislados entre sí.} o en caja estándar. Si se hace en caja estándar, se debe estimar cuál sería el comportamiento del altavoz en pantalla infinita.
+
+\subsubsection{Impedancia eléctrica de entrada}
+
+La impedancia eléctrica de entrada $Z _{\textnormal{ee}}(f) [\SI{}{\ohm}]$ se mide en bornes del altavoz. La \textbf{impedancia nominal} del altavoz sustituye al altavoz en los cálculos eléctricos.
+
+Teniendo en cuenta un altavoz de impedancia nominal de \SI{8}{\ohm}
+Impedancia de la bobina
+Autoinducción de la bobina
+
+\[ P_e = \frac{E^2}{Z _{\textnormal{nom}}} \]
+
+\[ Z _{\textnormal{ee}} = \frac{V _{\textnormal{alt}}}{I _{\textnormal{alt}}} \]
+
+Para medir la impedancia eléctrica de entrada se coloca una resistencia grande en serie con el altavoz y se mide la tensión en bornes del altavoz. La impedancia eléctrica de entrada será:
+
+\[ Z _{\textnormal{ee}} = \frac{V _{\textnormal{alt}}}{e_g} R_o \]
+
+Donde $R_o$ es la resistencia en serie con el altavoz y $e_g$ es la tensión del amplificador.
+
+En todos los altavoces electrodinámicos, la impedancia eléctrica de entrada tiene una forma similar. AÑADIR FOTO. El valor mínimo será la resistencia eléctrica de la bobina. La frecuencia resonante se debe a la resonancia mecánica del altavoz, concretamente a la masa móvil y a la araña. En alta frecuencia, la impedancia eléctrica de entrada se debe a la autoinducción de la bobina.
+
+\subsubsection{Potencia eléctrica máxima}
+
+Se refiere a la potencia máxima sin sufrir daño permamente. Para medir la \textbf{potencia nominal de ruido} se suele usar un ruido rosa filtrado en sesiones de larga duración para romper el altavoz.
+
+La \textbf{potencia nominal sinusoidal} se mide con un barrido de tonos cíclico.
+
+\subsubsection{Sensibilidad del altavoz}
+
+La \textbf{sensibilidad} es el nivel de presión sonora (en $\SI{}{\dB_{SPL}}$) que se obtiene a \SI{1}{\metre} de distancia con una potencia eléctrica de entrada de \SI{1}{\watt} en el eje de máxima radiación del altavoz.
+
+Para obtenerla se debe promediar la banda útil del altavoz.
+
+
+Para medir el nivel de presión sonora en una banda de frecuencia, depende del método de medida. En CPB se realiza la suma cuadrática de las bandas. MIRAR.
+
+\[ H(r) [\SI{}{\dB}] = 20 \log \left( \frac{p(r)}{E} \right)  \]
+
+\[ L _{\textnormal{SPL}} (r,E) = H(r) [\SI{}{\dB}] + 20 \log \left( E 	\right) -20 \log \left( p _{\textnormal{ref}} \right)  \]
+
+
+\section{Altavoz en pantalla infinita}
+\section{Altavoces en caja cerrada}
+\section{Sistemas bass-reflex}
+
+
+\chapter{Filtros de cruce para altavoces}
+\section{Filtros activos y pasivos}
+\section{Funciones de transferencia}
+\section{Reparto de potencia eléctrica}
+\section{Características óptimas}
+\section{Funciones de transferencia de dos vías}
+\section{Funciones de transferencia de tres vías}
+\section{Respuesta temporal}
+\section{Ecualización de la impedancia eléctrica de entrada}
+
+\chapter{Micrófonos}
+\section{Características de los micrófonos}
+\section{Tipos de micrófonos por su TAM}
+\section{Tipos de micrófonos por su TME}
+\section{Micrófonos especiales}
+\section{Conexión y alimentación de micrófonos}
+
+\chapter{Sistemas de refuerzo sonoro}
+\section{Niveles acústicos}
+\section{Respuesta temporal. Aspectos básicos. Auralización}
+\section{Criterios de inteligibilidad}
+\section{Realimentación acústica}
+\section{Ganancia acústica}
+\section{Amplificación}
+
+\end{document}

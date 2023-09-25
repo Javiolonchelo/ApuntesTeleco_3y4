@@ -1,0 +1,228 @@
+\documentclass[10pt]{book}
+
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{babelbib}
+\usepackage{braket}
+\usepackage{caption}
+\usepackage{colortbl}
+\usepackage{rotating}
+\usepackage[table]{xcolor}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{esint}
+\usepackage{eso-pic}
+\usepackage{listings}
+\usepackage{lscape}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{subdepth}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{upgreek}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{vwcol}
+\usepackage{wallpaper}
+\usepackage{xfrac}
+\usepackage{physics}
+\usepackage[c]{esvect}
+\usepackage[utf8]{inputenc}
+\usepackage[fleqn]{nccmath}
+\usepackage[thicklines]{cancel}
+\usepackage[margin=2cm]{geometry}
+\usepackage[colorlinks=true,spanish]{hyperref}
+\usepackage[oldvoltagedirection]{circuitikz}
+\usepackage[greek,spanish,es-tabla,es-nodecimaldot,es-noindentfirst]{babel}
+\usepackage[symbol]{footmisc}
+\usepackage{acro}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\sisetup{
+  per-mode = fraction,
+  detect-all,
+  exponent-product = \cdot
+}
+\hypersetup{
+  citecolor = blue,
+  linkcolor = blue,
+  urlcolor = blue,
+  pdfauthor = {Javier Rodrigo López}
+}
+\captionsetup[figure]{labelfont={bf},name={Figura},labelsep=period}
+\captionsetup[table]{labelfont={bf},name={Tabla},labelsep=period}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}[{\titlerule[0.05pt]}]
+\titlespacing{\section}{0pt}{2\parskip}{\parskip}
+\titlespacing{\subsection}{0pt}{\parskip}{0pt}
+\titlespacing{\subsubsection}{0pt}{\parskip}{0pt}
+\usepackage{enumitem}
+\setlist{before={\parskip=3pt}, after=\vspace{\baselineskip}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+\usepackage{booktabs}
+\usepackage{bigstrut}
+
+\renewcommand{\vec}{\vv}
+
+% Tipografía
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\rmdefault}{\sfdefault}
+
+% Para escribir decibelios SPL
+\DeclareSIUnit\dbspl{dB\ensuremath{_{\textnormal{SPL}}}}
+\DeclareSIUnit\dBlin{dB\ensuremath{_{\textnormal{Lin}}}}
+\DeclareSIUnit\dBA{dB\ensuremath{_{\textnormal{A}}}}
+
+% Siglas 
+\DeclareAcronym{dvb}{
+  short=DVB,
+  long=\textit{Digital Video Broadcasting},
+}
+\DeclareAcronym{ts}{
+  short=TS,
+  long=\textit{Transport Stream},
+}
+\DeclareAcronym{es}{
+  short=ES,
+  long=\textit{Elementary Stream},
+}
+\DeclareAcronym{ps}{
+  short=PS,
+  long=\textit{Program Stream},
+}
+\DeclareAcronym{pes}{
+  short=PES,
+  long=\textit{Packetized Elementary Stream},
+}
+\DeclareAcronym{pid}{
+  short=PID,
+  long=\textit{Packet Identifier},
+}
+\DeclareAcronym{pcr}{
+  short=PCR,
+  long=\textit{Program Clock Reference},
+}
+\DeclareAcronym{pmt}
+{
+  short=PMT,
+  long=\textit{Program Map Table},
+}
+\DeclareAcronym{pat}
+{
+  short=PAT,
+  long=\textit{Program Association Table},
+}
+\DeclareAcronym{psi}{
+  short=PSI,
+  long=\textit{Program Specific Information}, 
+}
+\DeclareAcronym{dvbsi}{
+  short=DVB-SI,
+  long=\textit{Service Information},
+}
+
+\title{\Huge Difusión de contenidos audiovisuales\\\huge Apuntes de clase}
+\author{Javier Rodrigo López}
+\date{\today}
+
+\begin{document}
+
+% Este comando crea el título
+\maketitle
+
+% Este comando crea el índice
+\tableofcontents
+
+\printacronyms
+\acresetall
+
+
+\newpage
+
+\section*{Presentación}
+
+Nota mínima para laboratorio: 4
+
+Nota mínima para teoría: 5
+
+Nota final: Teoría 70\% (Ambas partes hay que aprobarlas y cuentan un 35\%), Laboratorio 30\%
+
+Examen de laboratorio es un 50\% de la nota de laboratorio.
+
+El laboratorio liberado se guarda para cursos posteriores.
+
+Intentar aprobar los parciales para no hacer examen en enero !!!!!
+
+\newpage
+
+
+
+\chapter{Cabeceras de difusión de contenidos audiovisuales}
+\section{Organización de los contenidos a emitir: soportes proveedores, \mbox{HDTV/SDTV}}
+La organización de los datos se realiza con la capa de sistema de MPEG-2. A través de un solo canal pueden distribuirse varios programas, al menos en televisión digital. MPEG-4 puede llegar a comprimir de \SI{1.5}{Gbps} a \SI{4}{Mbps}.
+
+\begin{itemize}
+  \item \textbf{Proveedor de servicios}.
+  \item \textbf{Operador de televisión}. Es común que el operador de televisión sea el mismo que el proveedor de servicios. Hoy en día, este elemento se encarga de montar un múltiplex, que en MPEG-2 se denomina \ac{ts}, con los programas generados por los proveedores de servicios, que entrega finalmente al operador de transmisión.
+  \item \textbf{Operador de transmisión}.
+\end{itemize}
+
+\subsection{Normativa de transmisión}
+
+\begin{itemize}
+  \item Radiodifusión terrestre. Se guía por la norma ETS 300 744. Se utilizan canales de \SI{7} u \SI{8}{\mega\Hz}.
+  \item Radiodifusión por satélite. Se guía por la norma ETS 300 421. Se trabaja en la banda de \SI{11} o \SI{12}{\giga\Hz}.
+  \item Transmisión por cable. Se guía por la norma ETS 300 429. Se trabaja en la banda de \SI{8}{\mega\Hz}.
+\end{itemize}
+
+\subsection{Descripción de la capa de sistema de MPEG-2}
+
+Cada flujo de contenidos que sale de la campa de compresión se denomina \ac{es} y es un grupo de datos continuo que puede ser de vídeo, de audio, etc.
+
+Cada \ac{es} puede ser empaquetado en diferentes paquetes denominados \ac{pes}.
+
+Estos nuevos elementos, que tendrán un \ac{pid}, se pueden empaquetar en un \ac{ps} o bien en un \ac{ts}. Los \ac{ts} son secuencias de \ac{ps} con diferentes orígenes con un tamaño fijo de \SI{188}{bytes}. Contienen información de sistema, información de programa y contenidos.
+
+Cada programa tiene una \ac{pmt} y en ella se hallan los \ac{pid} de los \ac{es} que lo componen.
+
+Según el medio de distribución, se realiza la demodulación \ac{dvb} que corresponda, y entonces se procesa el \ac{ts} para obtener los \ac{pes} y los paquetes de sistema, y entonces se procesan los \ac{pes} para obtener los \ac{es}.
+\section{Necesidades según destinatarios}
+
+\chapter{Encapsulado de vídeo y audio para difusión}
+\section{Capa de sistema MPEG: Transport Stream}
+\section{Tablas Service Information (SI)}
+\section{Temporización}
+
+
+\chapter{Servicios añadidos, interactividad y acceso condicional}
+\section{Teletexto}
+\section{EPG}
+\section{Acceso Condicional}
+\section{Interactividad - HbbTV}
+
+\chapter{Difusión y distribución audiovisual en redes de televisión}
+\section{Difusión digital DVB: cable, satélite, terrestre y portable}
+\section{Distribución profesional por satélite: DVB-DSNG}
+\section{Sistemas de recepción de televisión: profesional e ICT}
+
+\chapter{Difusión y distribución audiovisual por redes genéricas de datos}
+\section{Streaming en la web}
+\section{Videoconferencia sobre IP}
+\section{IPTV}
+
+\chapter{Difusión y distribución audiovisual sobre soportes autónomos}
+\section{Autoría}
+\section{Gestión de derechos digitales (DRM)}
+
+\end{document}
