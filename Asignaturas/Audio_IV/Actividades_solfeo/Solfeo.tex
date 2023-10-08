@@ -129,27 +129,23 @@ Utilizando la \autoref{eq:sens_1}, donde $SPL_{\Delta }$ es el nivel de presión
                                        & \approx \boxed{\qty{97.2}{\dB\per\watt}} &  &                                                  &  &
 \end{alignat*}
 
-Ahora se procede a utilizar la \autoref{eq:sens_2}, donde $H_1(r)$ es el valor de la función de transferencia promediado a lo largo del rango útil y a la distancia $r=\qty{2}{\meter}$. El valor medio de la función de transferencia se calcula en Excel y es:
-\[ H_1(r=2) = \qty{81.75}{\dB} \text{ re. }\qty{20}{\micro\pascal\per\volt}\]
-Y se obtiene el valor de $S$:
+Utilizando la \autoref{eq:sens_2}, donde $H_1(r)$ es el valor de la función de transferencia a la frecuencia de \SI{500}{\Hz} y a la distancia $r=\qty{2}{\meter}$, se obtiene el valor de $S$:
 
 \begin{alignat*}{3}
-  S \left[ \SI{}{\dB\per\watt} \right] & = H_1(r=2) \left[ \unit{\dB}\text{ re. }\qty{20}{\micro\pascal\per\volt} \right] &  & + 20 \log \left( \frac{2.83}{1} \right) &  & + 20 \log \left( r \right) \\
-                                       & = 81.75                                                                          &  & + 9.036                                 &  & + \num{6.020}              \\
-                                       & \approx \boxed{\qty{96.8}{\dB\per\watt}}                                         &  &                                         &  &
+  S \left[ \SI{}{\dB\per\watt} \right] & = H_1(r) \left[ \SI{}{\dB}\text{ re. }\SI{20}{\micro\pascal\per\volt} \right] &  & + 20 \log \left( \frac{2.83}{1} \right) &  & + 20 \log \left( r \right) \\
+                                       & = 82.169                                                                      &  & + 9.036                                 &  & + \num{6.020}              \\
+                                       & \approx \boxed{\qty{97.2}{\dB\per\watt}}                                      &  &                                         &  &
 \end{alignat*}
 
-Para utilizar la \autoref{eq:sens_3} se debe cambiar el valor de referencia en las propiedades de la gráfica. Una vez hecho esto, se calcula el valor medio de la función de transferencia en Excel:
-\[ H_1(r=2) = \qty{-12.22}{\dB} \text{ re. }\qty{1}{\pascal\per\volt}\]
-Y se obtiene el valor de $S$:
+Para utilizar la \autoref{eq:sens_3} se debe cambiar el valor de referencia en las propiedades de la gráfica. Una vez hecho esto, se obtiene el valor de $S$:
 
 \begin{alignat*}{4}
-  S \left[ \SI{}{\dB\per\watt} \right] & = H_1(r=2) \left[ \SI{}{\dB}\text{ re. }\SI{1}{\pascal\per\volt} \right] &  & + 20 \log \left( \frac{2.83}{1} \right) &  & + 20 \log \left( r \right) &  & - 20 \log \left( p _{\textnormal{ref}} \right)                                         \\
-                                       & = -12.22                                                                 &  & + 9.036                                 &  & + \num{6.020}              &  & \underbrace{- \underbrace{20 \log \left( \num{20e-6} \right)}_{\num{-94}}}_{+\num{94}} \\
-                                       & \approx \boxed{\qty{96.8}{\dB\per\watt}}                                 &  &                                         &  &                            &  &
+  S \left[ \SI{}{\dB\per\watt} \right] & = H_1(r) \left[ \SI{}{\dB}\text{ re. }\SI{1}{\pascal\per\volt} \right] &  & + 20 \log \left( \frac{2.83}{1} \right) &  & + 20 \log \left( r \right) &  & - 20 \log \left( p _{\textnormal{ref}} \right)                                         \\
+                                       & = -11.810                                                              &  & + 9.036                                 &  & + \num{6.020}              &  & \underbrace{- \underbrace{20 \log \left( \num{20e-6} \right)}_{\num{-94}}}_{+\num{94}} \\
+                                       & \approx \boxed{\qty{97.2}{\dB\per\watt}}                               &  &                                         &  &                            &  &
 \end{alignat*}
 
-Se aprecia que los tres resultados son coherentes entre sí, ya que las variaciones en el resultado son mínimas, y que por tanto las diferentes expresiones para calcular la sensibilidad son equivalentes.
+Se aprecia que los tres resultados son coherentes entre sí, y que por tanto las diferentes expresiones para calcular la sensibilidad son equivalentes.
 
 \subsubsection{\texorpdfstring{Calcular en Excel el valor $SPL_{\Delta}$ mediante las gráficas de la práctica.}{Pregunta 3}}
 
