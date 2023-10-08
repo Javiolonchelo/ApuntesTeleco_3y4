@@ -1,0 +1,118 @@
+\documentclass[10pt]{article}
+
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{babelbib}
+\usepackage{braket}
+\usepackage{caption}
+\usepackage{colortbl}
+\usepackage{rotating}
+\usepackage[table]{xcolor}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{esint}
+\usepackage{eso-pic}
+\usepackage{listings}
+\usepackage{lscape}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{subdepth}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{upgreek}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{vwcol}
+\usepackage{wallpaper}
+\usepackage{xfrac}
+\usepackage{physics}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+\usepackage[c]{esvect}
+\usepackage[utf8]{inputenc}
+\usepackage[fleqn]{nccmath}
+\usepackage[thicklines]{cancel}
+\usepackage[margin=2cm]{geometry}
+\usepackage[colorlinks=true,spanish]{hyperref}
+\usepackage[oldvoltagedirection]{circuitikz}
+\usepackage[greek,spanish,es-tabla,es-nodecimaldot,es-noindentfirst]{babel}
+\usepackage[symbol]{footmisc}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\sisetup{
+  per-mode = fraction,
+  inline-per-mode = power,
+  detect-all,
+  exponent-product = \cdot
+}
+\hypersetup{
+  citecolor = blue,
+  linkcolor = blue,
+  urlcolor = blue,
+  pdfauthor = {Javier Rodrigo López}
+}
+\captionsetup[figure]{labelfont={bf},name={Figura},labelsep=period}
+\captionsetup[table]{labelfont={bf},name={Tabla},labelsep=period}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}[{}]
+\titlespacing{\section}{0pt}{2\parskip}{\parskip}
+\titlespacing{\subsection}{0pt}{\parskip}{0pt}
+\titlespacing{\subsubsection}{0pt}{\parskip}{0pt}
+\usepackage{enumitem}
+\setlist{before={\parskip=3pt}, after=\vspace{\baselineskip}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\renewcommand\thesubsubsection{\arabic{subsubsection}}
+
+\usepackage{booktabs}
+\usepackage{bigstrut}
+
+\renewcommand{\vec}{\vv}
+
+% Tipografía
+% \renewcommand{\familydefault}{\sfdefault}
+% \renewcommand{\rmdefault}{\sfdefault}
+
+% Para escribir decibelios SPL
+\DeclareSIUnit\dbspl{dB\ensuremath{_{\textnormal{SPL}}}}
+\DeclareSIUnit\dBlin{dB\ensuremath{_{\textnormal{Lin}}}}
+\DeclareSIUnit\dBA{dB\ensuremath{_{\textnormal{A}}}}
+
+
+\title{\Huge Práctica 1.2. Altavoces \\\huge Laboratorio de Sistemas Electroacústicos}
+\author{Javier Rodrigo López}
+\date{\today}
+
+\begin{document}
+\maketitle
+% \tableofcontents
+
+\subsubsection{Representar en Excel la respuesta anecoica del \textit{woofer} componiéndola a partir de las medidas de campo lejano y cercano alrededor de $f=\qty{300}{\hertz }$. Los datos de campo cercano deben atenuarse para alcanzar la curva de campo lejano. Utilizar unidades de \unit{\dB\per\volt} y una escala logarítmica de frecuencias desde \qty{20}{\hertz}.}
+
+\subsubsection{Adjuntar las respuestas medidas del sistema de altavoces de tres vías con los filtros de cruce
+  (polaridad correcta, inversión de polaridad del midrange, desplazamiento del tweeter...)
+  Explicar el porqué de las diferencias entre curvas y por qué esas diferencias se producen sólo a
+  determinadas frecuencias.}
+
+\subsubsection{Adjuntar las funciones de transferencia módulo/fase de los filtros de cruce (caso de carga
+  8 Ω). Adjuntar en forma de tabla:
+  • las frecuencias de cruce fc1 y fc2,
+  • las ganancias en fc1 y fc2 de los filtros que se cruzan,
+  • la fase relativa (o diferencia de fase) de las vías implicadas en cada frecuencia de cruce y
+  • las pendientes de ganancia/atenuación2 de los filtros en dB/oct y dB/dec.}
+
+\subsubsection{Usando las curvas de impedancia eléctrica de entrada para el caso «woofer en caja
+  hermética»3,calcular por el método de Small fc, Qec, Qmc, Qtc, α (relación de compliancias del
+  sistema de caja acústica cerrada) y Vab (volumen acústico equivalente). Usar los datos del
+  fabricante (página 110 del libro). Obtener también γ, la constante termodinámica de la caja.
+  Dato4: Vb = 0.158 m3.}
+
+\end{document}
