@@ -99,7 +99,7 @@
 
 En la \autoref{fig:h1_reconstruida} se encuentra representa esta respuesta. Se ha utilizado un factor de corrección tal que los valores de campo cercano a \qty{300}{\hertz } y los de campo lejano a \qty{301}{\hertz } coincidan. Este valor es de aproximadamente \num{1.35}.
 
-\begin{figure}[htp]
+\begin{figure}[hbtp]
   \centering
   \includegraphics[width=0.8\linewidth]{h1_reconstruida.png}
   \caption{Respuesta anecoica del \textit{woofer} reconstruida a partir de las medidas de campo cercano y lejano.}
@@ -120,7 +120,7 @@ La tercera medida (verde) se corresponde con la respuesta en frecuencia con pola
 
 En este caso también se puede observar que el nivel medido es menor que en el primer caso, aunque solamente en torno a $f_{c2}$. Las pérdidas de nivel suceden por el mismo problema que acabamos de comentar: la suma de presiones en oposición de fase procedentes de dos altavoces que trabajan simultáneamente. Sin embargo, en este caso la oposición de las fases no sucede por una inversión de la polaridad, sino por el propio camino acústico que recorre cada onda sonora. Como hemos medido en campo lejano y suponemos que el desplazamiento del \textit{tweeter} ha sucedido en el eje de vibración de los diafragmas, la presión que aporta el \textit{tweeter} llega al micrófono en oposición de fase con respecto al \textit{midrange}.
 
-\begin{figure}[htp]
+\begin{figure}[hbtp]
   \centering
   \includegraphics[width=\linewidth]{tres_medidas.png}
   \caption{Medidas de la caja en situación normal (rojo), con la polaridad del \textit{midrange} invertida (azul) y con el tweeter desplazado \qty{3.65}{\centi\metre} (verde).}
@@ -128,6 +128,17 @@ En este caso también se puede observar que el nivel medido es menor que en el p
 \end{figure}
 
 \subsubsection{Adjuntar las funciones de transferencia módulo/fase de los filtros de cruce (caso de carga \qty{8}{\ohm}). Adjuntar en forma de tabla las frecuencias de cruce $f_{c1}$ y $f_{c2}$, las ganancias en $f_{c1}$ y $f_{c2}$ de los filtros que se cruzan, la fase relativa (o diferencia de fase) de las vías implicadas en cada frecuencia de cruce y las pendientes de ganancia/atenuación de los filtros en dB/oct y dB/dec.}
+
+
+\begin{figure}[hbtp]
+  \centering
+  \includegraphics[width=\linewidth]{filtros_cruce.png}
+  \caption{Funciones de transferencia de los filtros de cruce: graves (rojo), medios (azul) y agudos (verde).}
+  \label{fig:filtros_cruce}
+\end{figure}
+
+fc1 318.75 Hz
+fc2 5387,50 Hz
 
 \subsubsection{Usando las curvas de impedancia eléctrica de entrada para el caso ``\textit{woofer} en caja hermética'', calcular por el método de Small $f_c, Q_{ec}, Q_{mc}, Q_{tc}, \alpha$ (relación de compliancias del sistema de caja acústica cerrada) y $V_{ab}$ (volumen acústico equivalente). Usar los datos del fabricante (página 110 del libro). Obtener también $\gamma$, la constante termodinámica de la caja. Dato: $V_b = \qty{0.158}{\metre\cubed}$.}
 
