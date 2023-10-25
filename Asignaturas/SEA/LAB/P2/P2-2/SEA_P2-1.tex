@@ -71,7 +71,7 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.5em}
 \renewcommand\thesubsection{\arabic{subsection}}
-\renewcommand\thesubsubsection{\alph{subsubsection})}
+\renewcommand\thesubsubsection{\arabic{subsection}.\alph{subsubsection}}
 
 \usepackage{booktabs}
 \usepackage{bigstrut}
@@ -97,20 +97,9 @@
 % \tableofcontents
 % \setcounter{subsection}{8}
 
-\subsection{Proporcionar el autoespectro del micrófono patrón obtenido con el calibrador sonoro. Utilizando el cursor de Pulse, obtener el nivel proporcionado por el calibrador sonoro en $\unit{\dB_{\text{SPL}}}$ en las dos siguientes situaciones. Explicar por qué el resultado de \ref{sec:segundo} es muy parecido al de \ref{sec:primero}, si contiene muchas más líneas espectrales.}
+\subsection{Proporcionar el autoespectro del micrófono patrón obtenido con el calibrador sonoro. Utilizando el cursor de Pulse, obtener el nivel proporcionado por el calibrador sonoro en dB SPL en las dos siguientes situaciones. Explicar por qué el resultado de \ref{sec:segundo} es muy parecido al de \ref{sec:primero}, si contiene muchas más líneas espectrales.}
 \subsubsection{Valor de la línea espectral de mayor nivel.} \label{sec:primero}
 \subsubsection{Valor delta considerando un ancho de banda que incluya las cuatro líneas espectrales de mayor nivel.} \label{sec:segundo}
-
-En la \autoref{fig:Autoespectro_micro_patron} se puede observar el autoespectro requerido, con su cursor principal ubicado en \qty{1}{\kilo\hertz} y su cursor delta alrededor de esta frecuencia.
-
-\begin{figure}[hbtp]
-  \centering
-  \includegraphics[width=\linewidth]{Imágenes/1. Autoespectro micrófono patrón.png}
-  \caption{Autoespectro del micrófono patrón al ser excitado por el calibrador sonoro.}
-  \label{fig:Autoespectro_micro_patron}
-\end{figure}
-
-El valor medido por el cursor principal es de $L_{\text{main}} = \qty{93.98}{\dB_{\text{SPL}}}$, y resulta que el valor medido por el cursor delta es exactamente el mismo, $L_{\Delta} = \qty{93.98}{\dB_{\text{SPL}}}$.
 
 \subsection{Proporcionar la sensibilidad del micrófono de prueba medido durante la práctica. Adjuntar las gráficas obtenidas y explicar el procedimiento. Contrastar la sensibilidad con los datos del fabricante (descargar y adjuntar las especificaciones del fabricante).}
 
