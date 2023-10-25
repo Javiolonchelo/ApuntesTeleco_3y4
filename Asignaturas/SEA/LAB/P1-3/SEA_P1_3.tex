@@ -147,6 +147,18 @@ Este resultado es coherente puesto que el sistema de bass-reflex es un sistema d
 
 \subsubsection{Adjuntar las gráficas de desplazamiento, velocidad y aceleración del diafragma tanto de la caja hermética como del sistema de bass-reflex. Para pasar de desplazamiento a velocidad y a aceleración aplicar la ponderación $j \omega$ desde el campo ``functions'' de PULSE. Obtener de las gráficas y presentar en forma de tabla los siguientes valores representativos (usar unidades lineales por voltio): $x_{d0c}$, $x_{d0b}$, $u_d (f_c)$, $a_{d0c}$ y $a_{d0b}$.}
 
+Entendiendo que los parámetros que incluyen el 0 en su subíndice se refieren al valor medido en la gráfica a la frecuencia de sintonía, y que la frecuencia $f_c$ en realidad es $f_b$ y se refiere a la frecuencia de sintonía del sistema de bass-reflex, se obtienen los siguientes valores:
+
+\begin{table}[hbtp]
+  \centering
+  \begin{tabular}{|l|l|l|} \hline
+                   & Caja cerrada                                                 & Bass-reflex                                                  \\ \hline
+    Desplazamiento & $x_{d0c} = \qty{164.7}{\micro\metre\per\volt}$               & $x_{d0b} = \qty{36.4}{\micro\metre\per\volt}$                \\ \hline
+    Velocidad      & $u_{dc}(f_c) = \qty{41.4}{\milli\metre\per\second\per\volt}$ & $u_{db}(f_c) = \qty{9.15}{\milli\metre\per\second\per\volt}$ \\ \hline
+    Aceleración    & $a_{d0c} = \qty{10.41}{\metre\per\second\squared\per\volt}$  & $a_{d0b} = \qty{2.3}{\metre\per\second\squared\per\volt}$    \\ \hline
+  \end{tabular}
+\end{table}
+
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.8\linewidth]{Imágenes/Desplazamiento.png}
@@ -168,5 +180,27 @@ Este resultado es coherente puesto que el sistema de bass-reflex es un sistema d
 
 \subsubsection{Adjuntar la gráfica de impedancia del sistema del sistema de bass-reflex (en Moodle se proporcionan estas curvas para la caja abierta, sin tubo añadido). Determinar las frecuencias características a partir de los cruces por cero de la fase y comprobar la correspondencia de estas frecuencias con otras obtenidas durante la práctica (consultar la teoría).}
 
+En las figuras \ref{fig:Zee_Woofer_en_caja_hermetica.png}, \ref{fig:Zee_Woofer_en_caja_con_filtros.png}, \ref{fig:Zee_Woofer_en_sistema_bass_reflex.png} se puede observar la impedancia eléctrica de entrada $Z_{ee}$ para cada uno de los tres sistemas estudiados. Aquellas frecuencias a las que se produce un cruce por cero de la fase pueden ser frecuencias significativas.
+
+\begin{figure}[hbtp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{Imágenes/Zee_Woofer_en_caja_hermetica.png}
+  \caption{Impedancia eléctrica de entrada de la caja hermética.}
+  \label{fig:Zee_Woofer_en_caja_hermetica.png}
+\end{figure}
+
+\begin{figure}[hbtp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{Imágenes/Zee_Woofer_en_caja_con_filtros.png}
+  \caption{Impedancia eléctrica de entrada de la caja en conjunto con los filtros de cruce}
+  \label{fig:Zee_Woofer_en_caja_con_filtros.png}
+\end{figure}
+
+\begin{figure}[hbtp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{Imágenes/Zee_Woofer_en_sistema_bass_reflex.png}
+  \caption{Impedancia eléctrica de entrada del sistema bass-reflex.}
+  \label{fig:Zee_Woofer_en_sistema_bass_reflex.png}
+\end{figure}
 
 \end{document}
