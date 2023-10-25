@@ -1,0 +1,110 @@
+\documentclass[10pt]{article}
+
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{babelbib}
+\usepackage{braket}
+\usepackage{caption}
+\usepackage{colortbl}
+\usepackage{rotating}
+\usepackage[table]{xcolor}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{esint}
+\usepackage{eso-pic}
+\usepackage{listings}
+\usepackage{lscape}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{subdepth}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{upgreek}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{vwcol}
+\usepackage{wallpaper}
+\usepackage{xfrac}
+\usepackage{physics}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+\usepackage[c]{esvect}
+\usepackage[utf8]{inputenc}
+\usepackage[fleqn]{nccmath}
+\usepackage[thicklines]{cancel}
+\usepackage[margin=2cm]{geometry}
+\usepackage[colorlinks=true,spanish]{hyperref}
+\usepackage[oldvoltagedirection]{circuitikz}
+\usepackage[greek,spanish,es-tabla,es-nodecimaldot,es-noindentfirst]{babel}
+\usepackage[symbol]{footmisc}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\sisetup{
+  per-mode = fraction,
+  inline-per-mode = power,
+  detect-all,
+  exponent-product = \cdot
+}
+\hypersetup{
+  citecolor = blue,
+  linkcolor = blue,
+  urlcolor = blue,
+  pdfauthor = {Javier Rodrigo López}
+}
+\captionsetup[figure]{labelfont={bf},name={Figura},labelsep=period}
+\captionsetup[table]{labelfont={bf},name={Tabla},labelsep=period}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}[{}]
+\titlespacing{\section}{0pt}{2\parskip}{\parskip}
+\titlespacing{\subsection}{0pt}{\parskip}{0pt}
+\titlespacing{\subsubsection}{0pt}{\parskip}{0pt}
+\usepackage{enumitem}
+\setlist{before={\parskip=3pt}, after=\vspace{\baselineskip}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\renewcommand\thesubsection{\arabic{subsection}}
+\renewcommand\thesubsubsection{\arabic{subsection}.\alph{subsubsection}}
+
+\usepackage{booktabs}
+\usepackage{bigstrut}
+
+\renewcommand{\vec}{\vv}
+
+% Tipografía
+% \renewcommand{\familydefault}{\sfdefault}
+% \renewcommand{\rmdefault}{\sfdefault}
+
+% Para escribir decibelios SPL
+\DeclareSIUnit\dbspl{dB\ensuremath{_{\textnormal{SPL}}}}
+\DeclareSIUnit\dBlin{dB\ensuremath{_{\textnormal{Lin}}}}
+\DeclareSIUnit\dBA{dB\ensuremath{_{\textnormal{A}}}}
+
+
+\title{\Huge Práctica 2.1. Micrófonos \\\huge Laboratorio de Sistemas Electroacústicos}
+\author{Javier Rodrigo López}
+\date{\today}
+
+\begin{document}
+\maketitle
+% \tableofcontents
+% \setcounter{subsection}{8}
+
+\subsection{Proporcionar el autoespectro del micrófono patrón obtenido con el calibrador sonoro. Utilizando el cursor de Pulse, obtener el nivel proporcionado por el calibrador sonoro en dB SPL en las dos siguientes situaciones. Explicar por qué el resultado de \ref{sec:segundo} es muy parecido al de \ref{sec:primero}, si contiene muchas más líneas espectrales.}
+\subsubsection{Valor de la línea espectral de mayor nivel.} \label{sec:primero}
+\subsubsection{Valor delta considerando un ancho de banda que incluya las cuatro líneas espectrales de mayor nivel.} \label{sec:segundo}
+
+\subsection{Proporcionar la sensibilidad del micrófono de prueba medido durante la práctica. Adjuntar las gráficas obtenidas y explicar el procedimiento. Contrastar la sensibilidad con los datos del fabricante (descargar y adjuntar las especificaciones del fabricante).}
+
+\subsection{Proporcionar la respuesta en frecuencia en campo lejano a 0º y 135º del micrófono de prueba en el intervalo \qty{20}{\hertz } – \qty{20}{\kilo\hertz } (eje $y$ en dB re. \qty{1}{\volt\per\pascal}). Obtener de las curvas:}
+\subsubsection{La Sensibilidad en dB re. \qty{1}{\volt\per\pascal}, sólo módulo según la siguiente tabla (restar la amplificación del preamplificador):}
+\subsubsection{El módulo de la directividad en dB: $D(\theta = \ang{135}, f) \, [\unit{\dB}]$  según la siguiente tabla. Comparar el resultado con la directividad proporcionada por el fabricante (aproximar a las frecuencias disponibles):}
+
+\end{document}
