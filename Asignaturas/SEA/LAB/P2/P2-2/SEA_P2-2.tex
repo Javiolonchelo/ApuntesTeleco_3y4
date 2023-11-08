@@ -88,23 +88,25 @@
 \DeclareSIUnit\dBA{dB\ensuremath{_{\textnormal{A}}}}
 
 
-\title{\Huge Práctica 2.1. Micrófonos \\\huge Laboratorio de Sistemas Electroacústicos}
+\title{\Huge Práctica 2.2. Micrófonos \\\huge Laboratorio de Sistemas Electroacústicos}
 \author{Javier Rodrigo López}
 \date{\today}
 
 \begin{document}
 \maketitle
 % \tableofcontents
-% \setcounter{subsection}{8}
+\setcounter{subsection}{3}
 
-\subsection{Proporcionar el autoespectro del micrófono patrón obtenido con el calibrador sonoro. Utilizando el cursor de Pulse, obtener el nivel proporcionado por el calibrador sonoro en dB SPL en las dos siguientes situaciones. Explicar por qué el resultado de \ref{sec:segundo} es muy parecido al de \ref{sec:primero}, si contiene muchas más líneas espectrales.}
-\subsubsection{Valor de la línea espectral de mayor nivel.} \label{sec:primero}
-\subsubsection{Valor delta considerando un ancho de banda que incluya las cuatro líneas espectrales de mayor nivel.} \label{sec:segundo}
+\subsection{Adjuntar las gráficas de respuesta en frecuencia para el efecto proximidad y filtro eléctrico.}
+\subsubsection{Representar vía Excel la gráfica de ganancia del efecto proximidad: $G _{\textnormal{prox}} [\unit{\dB} ] = S(\text{cerca}) [\unit{\dB} ]  – S(\text{lejos}) [\unit{\dB} ] $ (hay que compensar la diferencia de ganancia del preamplificador, si existió). La escala de frecuencias en \unit{\dB} desde \qty{20}{\hertz }.}
+\subsubsection{Representar en Excel la respuesta del filtro paso alto que incorpora el micrófono de laboratorio, $H [\unit{\dB} ] $. La escala de frecuencias en \unit{\dB} desde \qty{20}{\hertz }. Determinar la frecuencia de corte a \qty{-3}{\dB} y la pendiente de subida en dB/oct.}
 
-\subsection{Proporcionar la sensibilidad del micrófono de prueba medido durante la práctica. Adjuntar las gráficas obtenidas y explicar el procedimiento. Contrastar la sensibilidad con los datos del fabricante (descargar y adjuntar las especificaciones del fabricante).}
+\subsection{Representar en Excel el patrón polar de directividad de cualquiera de los micrófonos estudiados a la frecuencia de \qty{1}{\kilo \hertz }.}
 
-\subsection{Proporcionar la respuesta en frecuencia en campo lejano a 0º y 135º del micrófono de prueba en el intervalo \qty{20}{\hertz } – \qty{20}{\kilo\hertz } (eje $y$ en dB re. \qty{1}{\volt\per\pascal}). Obtener de las curvas:}
-\subsubsection{La Sensibilidad en dB re. \qty{1}{\volt\per\pascal}, sólo módulo según la siguiente tabla (restar la amplificación del preamplificador):}
-\subsubsection{El módulo de la directividad en dB: $D(\theta = \ang{135}, f) \, [\unit{\dB}]$  según la siguiente tabla. Comparar el resultado con la directividad proporcionada por el fabricante (aproximar a las frecuencias disponibles):}
+\subsection{Para el patrón polar anterior (\qty{1}{\kilo \hertz }), obtener en Excel el factor de directividad axial $Q_{ax}$. Usar la expresión de un micrófono con simetría cilíndrica y contrastar el resultado con el valor teórico de la función directividad analizada:}
+
+\begin{equation} \label{eq:qaxial}
+  Q_{ax} = \frac{2}{\int_{\theta = 0}^{\pi } D^2 (\theta ) \sen \left( \theta  \right) \dd \theta } \approx \frac{2}{\frac{\pi }{N}\sum_{i=1}^{N}D^2 \left( \theta _i \right)\sen \left( \theta _i \right)}
+\end{equation}
 
 \end{document}
