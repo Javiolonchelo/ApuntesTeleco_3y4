@@ -1,0 +1,138 @@
+\documentclass{article}
+\usepackage[spanish, es-tabla]{babel}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{fontspec}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[center]{caption}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titling}
+\usepackage[fixlanguage]{babelbib}
+\selectbiblanguage{spanish}
+\usepackage{subcaption}
+\captionsetup{labelfont=bf}
+% \captionsetup[table]{labelfont={bf},name={Tabla},labelsep=period}
+\usepackage{hyperref}
+\definecolor{blueX}{HTML}{3f84e4}
+\setmonofont{SFMonoRegular.otf}
+\usepackage[margin=2.8cm]{geometry}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{siunitx}
+\sisetup{
+    per-mode = fraction,
+    detect-all,
+    exponent-product = \cdot
+}
+\usepackage{enumitem}
+\usepackage{pdflscape}
+\usepackage[stylemods,style=super, nogroupskip, toc=false, hyperfirst=false, nonumberlist]{glossaries-extra}
+
+\setlength{\parindent}{0pt} % To avoid indentation
+\setabbreviationstyle[acronym]{long-short}
+\makenoidxglossaries
+\newglossary{difusion}{difusionin}{difusionout}{Glosario}
+\loadglsentries{glosario}
+
+% COLUMNAS Y FILAS MULTIPLES DENTRO DE TABLAS
+\usepackage{multirow, hhline}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\renewcommand{\listfigurename}{Figuras}
+\renewcommand{\listtablename}{Tablas}
+
+% \renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\thesubsubsection}{\alph{subsubsection}}
+
+\usepackage{titlesec}
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
+
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+\begin{document}
+
+\title{\textbf{Práctica 3\\Refuerzo sonoro de una sala}}
+\author{Javier Rodrigo López}
+\date{\today}
+\maketitle
+
+\pagenumbering{gobble}
+
+\fancypagestyle{firststyle}
+{
+    \fancyhead[L]{Sistemas Electroacústicos}
+    \fancyhead[R]{\includegraphics[width=0.3\linewidth]{Imágenes/ETSIST.png}}
+    %\fancyfoot[R]{\includegraphics[width=0.08\linewidth]{Imágenes/Plantilla_IAC.png}\\Departamento de Ingeniería Audiovisual y Comunicaciones}
+}
+
+\thispagestyle{firststyle}
+
+% \newpage
+
+\fancyhead{}
+\pagestyle{fancy}
+
+\pagestyle{fancy}
+\fancyhead[L]{Difusión de Contenidos Audiovisuales}
+\fancyhead[R]{Curso 2023/24}
+
+%\newpage
+%\tableofcontents
+%\listoffigures
+\setcounter{figure}{0}
+\setlength{\parskip}{0.5em}
+
+\hypersetup{
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=blueX
+}
+
+\tableofcontents
+\listoffigures
+
+% IMPRIME ACRÓNIMOS, SIGLAS Y GLOSARIO
+%\glsaddall
+%\newpage
+%\printnoidxglossaries
+
+\newpage
+
+\pagenumbering{arabic}
+\setcounter{page}{2}
+
+\section{Modelos de altavoz}
+\section{Colocación de los altavoces}
+\section{Ajuste de la uniformidad de campo directo a 1 kHz}
+\section{Balance de potencia}
+\section{Ecualización}
+\section{Niveles promedio de banda ancha con y sin ponderación A}
+\section{Retardos}
+\section{Inteligibilidad}
+\section{Cálculo de la respuesta temporal en los puntos 1 y 3}
+\section{Auralización}
+
+%\nocite{*}
+%\newpage
+%\bibliography{Bibliography}
+%\bibliographystyle{babplain}
+
+\end{document}

@@ -1,0 +1,450 @@
+\documentclass[a4paper, 8pt]{extarticle}
+
+\usepackage[greek,spanish,es-tabla,es-nodecimaldot,es-noindentfirst]{babel}
+\usepackage[a4paper, lmargin=0.2cm,rmargin=0.2cm,tmargin=1cm,bmargin=1cm, landscape]{geometry}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{cancel}
+\usepackage{physics}
+\usepackage{esvect}
+\renewcommand{\vec}[1]{\vv{{#1}}}
+\renewcommand{\grad}{\nabla}
+
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\rmdefault}{\sfdefault}
+
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+
+\titlespacing*{\section}{0pt}{12pt plus 4pt minus 2pt}{5pt plus 2pt minus 2pt}
+\titlespacing*{\subsection}{0pt}{12pt plus 4pt minus 2pt}{3pt plus 2pt minus 2pt}
+\titlespacing*{\subsubsection}{0pt}{12pt plus 4pt minus 2pt}{3pt plus 2pt minus 2pt}
+
+\allowdisplaybreaks
+\setcounter{secnumdepth}{-1}
+\setcounter{tocdepth}{-1}
+
+%%% INICIO DEL DOCUMENTO %%%
+\begin{document}
+\pagestyle{empty}
+\renewcommand{\arraystretch}{1.5}
+
+\begin{multicols}{3}
+  \section{Vectores}
+  \subsection{Producto escalar}
+  \[ \vec{A} \cdot \vec{B} = AB \cos \left( \theta \right) = \left\lbrace
+    \begin{matrix*}[l]
+      0 & \text{si } \vec{A} \perp \vec{B}\\
+      AB & \text{si }\vec{A} \parallel \vec{B}\\
+      k & \text{resto}
+    \end{matrix*} \right. \qquad 0 < k < AB\]
+
+  \subsection{Producto vectorial}
+  Representa el área del paralelogramo que forman los vectores $\vec{A}$ y $\vec{B}$.
+  \begin{align*}
+    \vec{A} \times \vec{B} & = AB \sen \left( \theta \right) \hat{n} = \left\lbrace
+    \begin{matrix*}[l]
+      \vec{0} & \text{si } \vec{A} \parallel \vec{B}\\
+      AB \hat{n} & \text{si }\vec{A} \perp \vec{B}\\
+      k \hat{n}  & \text{resto}
+    \end{matrix*} \right. \qquad
+    \left( \begin{matrix}
+               0 < k < AB \\
+               \hat{n} \perp \vec{A} \perp \vec{B}
+             \end{matrix} \right)                                       \\
+    \cdots                 & =
+    \begin{vmatrix}
+      \hat{i} & \hat{j} & \hat{k} \\
+      A_x     & A_y     & A_z     \\
+      B_x     & B_y     & B_z     \\
+    \end{vmatrix}                                                     \\
+    \cdots                 & =
+    \begin{vmatrix}
+      A_y & A_z \\
+      B_y & B_z \\
+    \end{vmatrix} \hat{i} -
+    \begin{vmatrix}
+      A_x & A_z \\
+      B_x & B_z \\
+    \end{vmatrix} \hat{j} +
+    \begin{vmatrix}
+      A_x & A_y \\
+      B_x & B_y \\
+    \end{vmatrix} \hat{k}
+  \end{align*}
+
+  \subsection{Producto mixto}
+  \[ \vec{A} \cdot \left( \vec{B} \times \vec{C} \right) = \text{Volumen del paralelepípedo} \]
+
+
+  \section{Dinámica}
+  \subsection{Leyes de Newton}
+  \subsubsection{Cinemática}
+  \[ \vec{a}\left( t \right) = \dv{\vec{v}(t)}{t} = \dv[2]{\vec{r}(t)}{t} \]
+  \subsubsection{Primera Ley de Newton}
+  En un sistema de referencia inercial, si ninguna fuerza externa actúa sobre un cuerpo, este se mantendrá en reposo o MRU.
+  \[ \vec{v} = \text{constante} \quad \Leftrightarrow \quad \vec{a} = 0\]
+  \subsubsection{Segunda Ley de Newton - Conservación del momento lineal}
+  \[ \vec{F} = m \vec{a} \]
+  \subsubsection{Tercera Ley de Newton - Ley de acción-reacción}
+  \[ \vec{F}_{A\to B} = - \vec{F}_{B\to A} \]
+
+  \subsection{Trabajo y energía}
+  \begin{align*}
+     & \text{Fuerza de rozamiento} & \vec{F}_{\text{roz}} & = \mu N                                        \\
+     & \text{Trabajo}              & W                    & = \int_C \vec{F} \cdot \dd\vec{r} = \Delta E_c \\
+     &                             & W_T                  & = W_{\text{cons}} + W_{\text{no cons}}         \\
+     & \text{Energía cinética}     & E_c                  & = \frac{1}{2}mv^2                              \\
+     & \text{Potencia}             & P                    & = \dv{W}{t}
+  \end{align*}
+
+  \subsection{Conservación de la energía}
+  \subsubsection{Fuerzas conservativas}
+  Si el trabajo entre dos puntos no depende del camino recorrido, entonces se trata de una fuerza conservativa. La energía mecánica es conservativa.
+  \begin{align*}
+     & \text{Energía mecánica}               & E_m        & = E_c + E_p       \\
+     & \text{Energía potencial}              & W_{A\to B} & = -\Delta E_p     \\
+     & \text{Energía potencial gravitatoria} & E_{pg}     & = mgh             \\
+     & \text{Energía potencial elástica}     & E_{pe}     & = \frac{1}{2}kx^2
+  \end{align*}
+  \subsubsection{Curvas de potencial y puntos de equilibrio}
+  \[ F(x) = - \dv{E_p(x)}{x} \]
+  Los puntos de equilibrio cumplen:
+  \[ \dv{E_p}{x} = 0 \ \Leftrightarrow \ F = 0 \qquad \left\lbrace
+    \begin{matrix*}[l]
+      \text{eq. estable}   & \text{si }\dv[2]{E_p}{x}>0\\[5pt]
+      \text{eq. inestable} & \text{si }\dv[2]{E_p}{x}<0
+    \end{matrix*} \right.\]
+
+  \subsection{Sólido rígido}
+  \begin{align*}
+     & \text{Centro de masas}               & \vv*{r}{\text{CM}} & = \frac{\sum_{i=1}^{N}m_i \vv*{r}{i}}{M} \\
+     & \text{Velocidad del centro de masas} & \vec{p}            & = M \vv*{v}{\text{CM}}                   \\
+     & \text{Momento de fuerzas}            & \vec{M}            & = \vec{r} \times \vec{F}                 \\
+  \end{align*}
+
+  \subsubsection{Rotaciones entorno a un eje fijo}
+  \begin{align*}
+     & \text{Momento angular}              & \vec{l} & = \vec{r} \times \vec{p}                                          \\
+     & \text{Momento de inercia}           & I       & = \sum_{i=1}^{N} m_i R_i^2                                        \\
+     & \text{Energía cinética de rotación} & E_c     & = \frac{1}{2} I \omega ^2                                         \\
+     & \textbf{Teorema de Steiner}         & I       & = I_{\text{CM}} + Md^2                                            \\
+     &                                     & I       & = \frac{1}{2}mR^2                                                 \\
+     &                                     & \omega  & = \frac{v}{R}                                                     \\
+     & \text{Condición de rodadura}        & E_c     & = \frac{1}{2}M v_{\text{CM}}^2 + \frac{1}{2}I_{\text{CM}}\omega^2
+  \end{align*}
+
+  \section{Oscilador armónico simple}
+  \begin{align*}
+     & \text{Ley de Hooke}         & F             & = -k\Delta x                                                                                                                            \\
+     & \text{Energía del muelle}   & E             & = \frac{1}{2}mv^2 + \frac{1}{2}kx^2 \quad \left( = \text{cte.} \right)                                                                  \\
+     & \text{Elongación}           & \xi           & = x - x_{\text{eq}}                                                                                                                     \\
+     & \text{Ecuación diferencial} & 0             & = m\ddot{\xi} + k\xi                                                                                                                    \\
+     & \text{Solución 1}           & \xi (t)       & = \xi _0 \cos \left( \omega t \right) + \frac{v_0}{\omega} \sen \left( \omega t \right)                                                 \\
+     & \text{Solución 2}           & \xi (t)       & = \sqrt{\xi_0^2 + \left( \frac{v_0}{\omega} \right)^2} \cos \left[ \omega t + \arctan \left( - \frac{v_0}{\omega \xi_0} \right) \right] \\
+     & \text{}                     & F(x)          & \approx F \left( x_{\text{eq}} \right) + \underbrace{\dv{F}{x} \left( x_{\text{eq}} \right)}_{-k} \left( x - x_{\text{eq}} \right)      \\
+     & \text{}                     & k             & \approx E_p''\left( x_{\text{eq}} \right) > 0                                                                                           \\
+     & \text{Muelles en paralelo}  & x_{\text{eq}} & = \frac{k_1l_1 + k_2l_2}{k_1 + k_2}\qquad k_{\text{eq}} = \sum_{i=1}^{n}k_i                                                             \\
+     & \text{Muelles en serie}     & x_{\text{eq}} & = \sum_{i=1}^{n}l_i \qquad \frac{1}{k_{\text{eq}}} = \sum_{i=1}^{n}\frac{1}{k_i}                                                        \\
+     & \text{En un péndulo}        & \alpha        & \approx \sen \left( \alpha \right) \qquad \omega = \sqrt{\frac{g}{l}}
+  \end{align*}
+
+  \section{Oscilador amortiguado}
+  \begin{align*}
+     & \text{Ecuación diferencial}     & m\ddot{\xi} & = -k\xi -b\dot{\xi}                                              \\
+     &                                 & \omega ^2   & = \frac{k}{m} \qquad \gamma                     & = \frac{b}{2m} \\
+     &                                 & 0           & = \ddot{\xi} + 2\gamma \dot{\xi} + \omega ^2\xi                  \\
+     & \text{Régimen subamortiguado}   & \omega      & > \gamma                                                         \\
+     & \text{Régimen crítico}          & \omega      & \approx \gamma                                                   \\
+     & \text{Régimen sobreamortiguado} & \omega      & < \gamma                                                         \\
+  \end{align*}
+  \subsection{Régimen subamortiguado}
+  \begin{align*}
+     & \text{Pseudofrecuencia} & \Omega  & = \sqrt{\omega ^2 - \gamma ^2} > 0                                                                                                  \\
+     & \text{Solución 1}       & \xi (t) & = e^{- \gamma t} \left[ \xi _0 \cos \left( \Omega t \right) + \frac{v_0+\gamma \xi _0}{\Omega} \sen \left( \Omega t \right) \right] \\
+     & \text{Solución 2}       & \xi (t) & = e^{-\gamma t} A \cos \left( \Omega t + \varphi \right)                                                                            \\
+     &                         & A       & = \sqrt{\xi _0^2 + \left( \frac{v_0+\gamma\xi _0}{\Omega} \right)^2}                                                                \\
+     &                         & \varphi & = \arctan \left( - \frac{v_0 + \gamma\xi _0}{\Omega\xi _0} \right)                                                                  \\
+  \end{align*}
+  \subsection{Régimen crítico}
+  \begin{align*}\xi (t) = e^{-\gamma t} \left[ \xi_0 + \left( v_0 + \gamma \xi_0 \right) t \right]
+  \end{align*}
+  \subsection{Régimen sobreamortiguado}
+  \begin{align*}
+    \Gamma  & = \sqrt{\gamma ^2 - \omega ^2}                                                                                                                                                                                        \\
+    \xi (t) & = e^{-\gamma t} \left[ \xi_0 \cosh \left( \Gamma t \right) + \frac{v_0 + \gamma \xi_0}{\Gamma} \sinh \left( \Gamma t \right) \right]                                                                                  \\
+    \xi (t) & = \frac{1}{2} e^{-\left( \gamma + \Gamma \right)t} \left( \xi_0 - \frac{v_0 + \gamma\xi_0}{\Gamma} \right) + \frac{1}{2} e^{-\left( \gamma - \Gamma \right)t} \left( \xi_0 + \frac{v_0 + \gamma\xi_0}{\Gamma} \right)
+  \end{align*}
+  \subsection{Energía y analogía RLC}
+  \begin{align*}
+     &                           & \gamma    & = \frac{R}{2L}                                      \\
+     &                           & \omega    & = \frac{1}{\sqrt{LC}}                               \\
+     & \textnormal{Efecto Joule} & \dv{E}{t} & = - RI^2 < 0 \quad \textnormal{(Se disipa energía)}
+  \end{align*}
+
+  \section{Teoría de campos}
+  \begin{align*}
+     & \textnormal{Campo escalar}   & f(\vec{r}) & \\
+     & \textnormal{Campo vectorial} & f(\vec{r}) & \\
+  \end{align*}
+  \subsection{Sistemas de coordenadas}
+  \subsubsection{Coordenadas cartesianas}
+  \begin{align*}
+    \dd S & = \dd x \dd y       \\
+    \dd V & = \dd x \dd y \dd z
+  \end{align*}
+  \subsubsection{Coordenadas polares (2D)}
+  \begin{align*}
+    x      & = r \cos \left( \theta \right)       \\
+    y      & = r \sen \left( \theta \right)       \\[5pt]
+    r      & = \sqrt{x^2 + y^2}                   \\
+    \theta & = \arctan \left( \frac{y}{x} \right) \\
+    \dd S  & = r \dd r \dd \theta
+  \end{align*}
+  \subsubsection{Coordenadas cilíndricas (3D)}
+  \begin{align*}
+    x     & = \rho \cos \left( \theta \right) \\
+    y     & = \rho \sen \left( \theta \right) \\[5pt]
+    \dd S & = \rho \dd \theta \dd z           \\
+    \dd V & = \rho \dd \rho \dd \theta \dd z
+  \end{align*}
+  \subsubsection{Coordenadas esféricas (3D)}
+  \begin{align*}
+    x     & = r \sen \left( \theta \right) \cos \left( \varphi \right)    \\
+    y     & = r \sen \left( \theta \right) \sen \left( \varphi \right)    \\
+    z     & = r \cos \left( \theta \right)                                \\[5pt]
+    \dd S & = r^2 \sen \left( \theta \right) \dd \theta \dd \varphi       \\
+    \dd V & = r^2 \sen \left( \theta \right) \dd \theta \dd \varphi \dd r \\
+  \end{align*}
+  \subsection{Líneas de campo}
+  \begin{align*}
+    \vec{F} \times \vec{\dd l}            & = 0                 \\
+    \frac{\dd x}{F_x} = \frac{\dd y}{F_y} & = \frac{\dd z}{F_z} \\
+  \end{align*}
+
+  \subsection{Operadores diferenciales}
+  \begin{align*}
+     & \text{Operador Nabla}       & \grad                       & = \left( \pdv{}{x}, \pdv{}{y}, \pdv{}{z} \right)              \\[5pt]
+     & \text{Gradiente}            & \grad f(\vec{r})            & = \left( \pdv{f}{x}, \pdv{f}{y}, \pdv{f}{z} \right)           \\[5pt]
+     & \text{Derivada direccional} & D_{\hat{a}}f(\vec{r})       & = \lim_{h\to0^+} \frac{f(\vec{r} + h\hat{a}) - f(\vec{r})}{h} \\[5pt]
+     &                             & D_{\hat{a}}f(\vec{r})       & = \hat{a} \cdot \grad f(\vec{r})                              \\[5pt]
+     & \text{Divergencia}          & \text{div }\vec{F}(\vec{r}) & = \grad \cdot \vec{F} \ \left\lbrace
+    \begin{matrix*}[l]
+      > 0 &\text{tiende a divergir}\\
+      < 0 &\text{tiende a converger}\\
+    \end{matrix*} \right.                                                                                                \\
+     & \text{Rotacional}           & \text{rot }\vec{F}(\vec{r}) & = \grad \times \vec{F} \ \left\lbrace
+    \begin{matrix*}[l]
+      \not = 0 &\text{líneas cerradas}\\
+      = 0 &\text{líneas no cerradas}\\
+    \end{matrix*} \right.                                                                                              \\[5pt]
+     & \text{Laplaciano}           & \vec{\Delta}                & \equiv \grad ^2 = \pdv[2]{}{x} + \pdv[2]{}{y} + \pdv[2]{}{z}
+  \end{align*}
+
+  \subsection{Flujo}
+  \[ \Phi = \int_{S} \vec{F} \cdot \vec{\dd S} \qquad \vec{\dd S} = \dd S \hat{n}\]
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item Encontrar el sistema de coordenadas.
+    \item Encontrar la expresión de $\vec{\dd S}$
+    \item Calcular el producto escalar $\vec{F} \cdot \vec{\dd S}$
+    \item Calcular la integral sobre toda la superficie.
+  \end{itemize}
+
+  \subsubsection{Cómo hallar el vector normal}
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item Considerar que la superficie es un campo escalar. La ecuación de la superficie será algo como $f(\vec{r}) = c$
+    \item Calcular el gradiente (porque es perpendicular). $\grad f(\vec{r})$
+    \item Normalizamos el gradiente para obtener un vector unitario. $\hat{n} = \frac{\grad f}{\abs{\grad f}}$
+  \end{itemize}
+
+  \subsection{Circulación}
+  \[ C = \int_{A,C}^{B} \vec{F} \cdot \vec{\dd l} \]
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item Escibir el camino $C$ en forma paramétrica.
+    \item Escribir $\vec{\dd l}$
+    \item Calcular $\vec{F} \cdot \vec{\dd l}$
+    \item Calcular la circulación (hacer la integral).
+  \end{itemize}
+  \[ C = \oint _C \vec{F}\cdot \vec{\dd l} = 0 \quad \Rightarrow \quad \vec{F} \text{ es un campo conservativo} \]
+
+  \subsection{Teorema de Gauss}
+  \[ \Phi = \int_{S} \vec{F}\cdot \vec{\dd S} = \int_{V} \grad \cdot \vec{F} \dd V \quad \left\lbrace
+    \begin{matrix*}[l]
+      > 0 & \text{Fuente interior}\\
+      < 0 & \text{``Sumidero'' interior}\\
+    \end{matrix*} \right.\]
+
+  \subsection{Teorema de Stokes}
+  \[ C = \oint _C \vec{F}\cdot \vec{\dd l} = \int_{S} \left( \grad \times \vec{F} \right) \cdot \vec{\dd S} \]
+
+  \newpage
+  \section{Campo eléctrico}
+  \begin{align*}
+     & \textnormal{Ley de Coulomb}             & \vv*{F}{1\to 2}      & = k \frac{q_1q_2}{r^2} \hat{r}             \\
+     & \textnormal{Constante de Coulomb}       & k                    & = \frac{1}{4\pi\varepsilon_0}              \\
+     & \textnormal{Carga del electrón}         & e                    & = \SI{-1.602e-19}{\coulomb}                \\
+     & \text{Principio de superposición}       & \vv*{F}{T}           & = \sum_{i=1}^{n} \vv*{F}{i}                \\
+     & \text{Campo eléctrico}                  & \vec{E} (\vec{r})    & = k \frac{q}{r^2}\hat{r}                   \\
+     & \text{(varias cargas puntuales)}        & \vec{E} (\vec{r})    & = k \sum_{i=1}^{n}\frac{q}{r_i^2}\hat{r}_i \\
+     & \text{Relación con la fuerza eléctrica} & \vv*{F}{\text{eléc}} & = q \vec{E}                                \\
+  \end{align*}
+
+  \subsection{Líneas de campo}
+  El campo eléctrico es un campo conservativo. Las líneas de campo comienzan o acaban en las cargas. Si se separan, indica que aumenta el módulo. Las superficies equipotenciales son perpendiculares a las líneas de campo.
+
+  \subsection{Densidad de carga}
+  \begin{align*}
+     & \text{Densidad lineal}      & \dd q   & = \lambda \dd l \qquad q = \int_{L} \lambda \dd l                                \\
+     & \text{Densidad superficial} & \dd q   & = \sigma \dd S \qquad q = \int_{S} \sigma \dd S                                  \\
+     & \text{Densidad volumétrica} & \dd q   & = \rho \dd V \qquad q = \int_{V} \rho \dd
+    V                                                                                                                           \\
+     & \text{Ejemplo (volumen)}    & \vec{E} & = k \int_{V}\frac{\dd q}{r^2}\hat{r} = k \iiint \frac{\rho}{r^2} \hat{r} \ \dd V
+  \end{align*}
+
+  \subsection{Ley de Gauss}
+  \begin{align*}
+     & \text{Ley de Gauss}      & \Phi                & = \int _S \vec{E} \cdot \vec{\dd S} = \frac{Q_{\text{int}}}{\varepsilon _0} \\
+     & \text{Forma diferencial} & \grad \cdot \vec{E} & = \frac{\rho}{\varepsilon _0}                                               \\
+  \end{align*}
+
+  \subsection{Campos producidos por algunas distribuciones de carga}
+
+  \begin{align*}
+     & \text{Hilo infinito, }\lambda = \text{cte.}                  & \vec{E}(\vec{r}) & = \frac{\lambda}{2\pi\varepsilon_0\rho} \hat{\rho} \\
+     & \text{Esfera cargada, radio }R \text{, } \rho = \text{cte.}  & \vec{E}(\vec{r}) & = \left\lbrace
+    \begin{matrix*}[l]
+      \frac{\rho r}{3 \varepsilon_0} \hat{r}\ , & r \leq R \\
+      k\frac{Q_T}{r^2} \hat{r}\ , & r > R
+    \end{matrix*} \right.                                                                                    \\
+     & \text{Esfera cargada, radio }R \text{, } \rho (r) = \alpha r & \vec{E}(\vec{r}) & = \left\lbrace
+    \begin{matrix*}[l]
+      \frac{\alpha r^2}{4 \varepsilon_0} \hat{r}\ , & r \leq R \\
+      k\frac{Q_T}{r^2} \hat{r}\ , & r > R
+    \end{matrix*} \right.                                                                                \\
+     & \text{Plano infinito, }\sigma = \text{cte.}                  & \vec{E}(\vec{r}) & = \frac{\sigma}{2\varepsilon_0} \hat{n}            \\
+  \end{align*}
+
+  \section{Energía potencial eléctrica y potencial eléctrico}
+  \subsection{Conservación del campo eléctrico}
+  El campo eléctrico es conservativo. Todo campo conservativo puede ser obtenido a través del gradiente de un campo escalar (en este caso, el potencial eléctrico).
+  \[ \grad \times \vec{E} = 0 \quad \Leftrightarrow \quad \vec{E} = - \grad V \]
+
+  \subsection{Potencial eléctrico}
+  \begin{align*}
+     & \text{Potencial por carga puntual}  & V(\vec{r}) & = k \frac{q}{r}                                                           \\
+     & \text{Distribuciones finitas}       & V(\vec{r}) & = k \int_{Q_T} \frac{\dd q}{r}                                            \\
+     & \text{(a partir de la circulación)} & V(\vec{r}) & = \int_{r}^{\infty} \vec{E} \cdot \vec{\dd l} = V(r) - \cancel{V(\infty)} \\
+     & \text{Distribuciones infinitas}     & V(\vec{r}) & = \int_{r}^{\text{origen de }V} \vec{E} \cdot \vec{\dd l}
+  \end{align*}
+
+  \subsection{Trabajo y energía potencial eléctrica}
+  \begin{align*}
+     & \text{Trabajo eléctrico}    & W                 & = \int_{C_{A \to B}}\vec{F}\cdot \vec{\dd l} = -\Delta E_p \\
+     & \text{Energía potencial}    & E_p               & = q V                                                      \\
+     &                             & E_p               & = kq_0 \sum_{i=1}^{n}\frac{q_i}{r_i}                       \\
+     & \text{Energía de formación} & U                 & = k \sum_{j=1}^{n}\sum_{\substack{i<j                      \\ i=1}}^{n} \frac{q_iq_j}{r_{ij}} \\
+     & \text{Ecuación de Poisson}  & \vec{\Delta} ^2 V & = - \frac{\rho}{\varepsilon_0}                             \\
+     & \text{Ecuación de Laplace}  & \vec{\Delta} ^2 V & = 0 \quad \text{(si no hay densidades de carga)}
+  \end{align*}
+
+  \subsection{Curva de potencial}
+  El origen de potencial es arbitrario. El sistema intentará llevar la carga a un mínimo de potencial (punto de equilibrio estable). Los máximos son puntos de equilibrio inestable.
+
+  \section{Condensadores}
+  \subsection{Conductores y capacidad}
+  Los conductores son materiales donde las cargas se mueven libremente. En el interior de un conductor, el campo eléctrico es nulo. Si hay un campo eléctrico externo, o bien está cargado, se genera una distribución de carga en la superficie que mantenga el campo interior nulo. El potencial eléctrico es el mismo en todo el conductor.
+  \begin{align*}
+     & \text{Capacidad} & C & = \frac{Q}{V}
+  \end{align*}
+  \subsection{Aislantes y dieléctricos}
+  Los aislantes son materiales donde las cargas no se mueven libremente. Los dieléctricos son un tipo de aislantes. Cuando existe un campo eléctrico externo, estos son sometidos a una polarización. Se induce un campo eléctrico interno que contrarresta parcialmente el campo externo.
+  \[ \vv*{E}{\text{ef}} = \vv*{E}{\text{ext}} + \vv*{E}{P} = \frac{1}{\varepsilon_r} \vv*{E}{\text{ext}}\]
+  \begin{align*}
+     & \text{Permitividad en el vacío}    & \varepsilon_0       & = \SI{8.854e-12}{\coulomb\squared\per\newton\per\metre\squared} \\
+     & \text{Permitividad relativa}       &                     & \varepsilon_r                                                   \\
+     & \text{Permitividad de un material} & \varepsilon         & = \varepsilon_r \varepsilon_0                                   \\
+     & \text{Susceptibilidad eléctrica}   & \chi _e             & = \varepsilon_r - 1                                             \\
+     & \text{Densidad de polarización}    & \vec{P}             & = \varepsilon_0 \chi _e \vv*{E}{\text{ef}}                      \\
+     &                                    & \vv*{E}{P}          & = - \frac{1}{\varepsilon_0}\vec{P}                              \\
+     & \text{Desplazamiento eléctrico}    & \vec{D}             & = \varepsilon \vv*{E}{\text{ef}}                                \\
+     & \text{Ley de Gauss en dieléctrico} & \grad \cdot \vec{D} & = \rho _{\text{libre}}
+  \end{align*}
+
+  \subsection{Condensadores}
+  Teniendo dos conductores, la presencia de uno puede afectar a la distribución de carga de su superficie. Si todas las líneas de campo de un conductor van de un conductor al otro, se dice que hay influencia total. Esto sucede en coronas esféricas y en dos planos infinitos (o muy grandes) paralelos. La carga de cada conductor será igual pero de signo contrario. Solo existe campo eléctrico entre los conductores.
+
+  \begin{align*}
+     & \text{Energía almacenada}           & U        & = \frac{1}{2}Q\Delta V= \frac{1}{2} C \left( \Delta V \right)^2 \\
+     & \text{Diferencia de potencial}      & \delta V & = \int_{-}^{+}\vec{E}\cdot \vec{\dd l}                          \\
+     & \text{Campo dentro del condensador} & E        & = \frac{\sigma}{\varepsilon}                                    \\
+     & \text{Carga del condensador}        & Q        & = \sigma S                                                      \\
+     & \text{Analogía con el muelle}       & k        & \leftrightarrow \frac{1}{C} \ , \qquad x \leftrightarrow q
+  \end{align*}
+
+  \newpage
+  \section{Campo magnético}
+
+  \begin{align*}
+     & \text{Analogía con Coulomb} & \vv*{\dd ^2 F}{12}  & =\frac{\mu_0}{4\pi}i_1i_2\frac{\vv*{\dd l}{2}\times \left( \vv*{\dd l}{1}\times \vec{r} \right)}{r^3}  \\
+     &                             & \vv*{F}{q_1\to q_2} & =\frac{\mu_0}{4\pi}q_1q_2\frac{\vv*{v}{2}\times \left( \vv*{v}{1}\times \vv*{r}{12} \right)}{r_{12}^3}
+  \end{align*}
+  \subsection{Campo magnético sobre una carga en movimiento}
+  \[ \vec{B}(\vec{r}) = \frac{\mu_0}{4\pi}q_1\frac{\vv*{v}{1}\times \vv*{r}{12}}{r_{12}^2}= \frac{1}{c^2}\vv*{v}{1}\times \vec{E}(\vec{r}) \]
+
+  \begin{align*}
+     & \text{Si tenemos }N+1 \text{ cargas}     & \vec{B}                        & = \sum_{i=1}^{N} \frac{\mu_0}{4\pi}q_i \frac{\vv*{v}{i}\times \vv*{r}{i}}{r_i^3}  \\
+     & \text{Fuerza de Lorentz}                 & \vec{F}                        & = q \left( \vec{E} + \vec{v} \times \vec{B} \right)                               \\
+     & \text{}                                  & \vv{F}{mag}                    & = I \int_{C} \vec{\dd l} \times \vec{B}                                           \\
+     & \text{Ley de Biot y Savart}              & \vec{B}                        & = \sum_{i=1}^{N}\frac{\mu _0}{4\pi} q_i \frac{\vv*{v}{i}\times \vv*{r}{i}}{r_i^3} \\
+     & \text{Constante magnética}               & k_m                            & = \frac{\mu}{4\pi}                                                                \\
+     &                                          & \vec{\dd B}                    & = \frac{\mu_0}{4\pi} I \frac{\vec{\dd l}\times \vec{r}}{r^3}                      \\
+     & \text{Ley de Ampère}                     & \oint \vec{B}\cdot \vec{\dd l} & = \mu_0 I                                                                         \\
+     & \text{Forma integral}                    & \grad \times \vec{B}           & = \mu _0 \vec{j}                                                                  \\
+     & \text{Densidad superficial de corriente} &                                & \vec{j}
+  \end{align*}
+
+  \subsection{Ejemplos de algunos campos magnéticos}
+  \begin{align*}
+     & \text{Hilo rectilíneo infinito} & \vec{B}(r) & = \frac{\mu_0I}{2\pi r}\hat{t} \\
+     & \text{Hilo rectilíneo infinito} & \vec{B}(r) & = \frac{\mu_0I}{2\pi r}\hat{t} \\
+  \end{align*}
+
+  \section{Otros recursos}
+  \subsection{Integrales inmediatas}
+  \begin{align*}
+     & \int x^n \dd x                          &  & = \frac{x^{n+1}}{n+1} + C                        \\
+     & \int \frac{\dd x}{x}                    &  & = \ln \abs{x} + C                                \\
+     & \int \sen (x) \dd x                     &  & = -\cos (x) + C                                  \\
+     & \int \cos (x) \dd x                     &  & =  \sen (x) + C                                  \\
+     & \int \left( 1 + \tg ^2(x) \right) \dd x &  & = \int \frac{1}{\cos ^2 (x)} \dd x = \tg (x) + C \\
+     & \int \frac{1}{1 + x^2} \dd x            &  & = \arctan (x) + C                                \\
+     & \int \sqrt{\frac{1}{1-x^2}} \dd x       &  & = \arcsen (x) + C                                \\
+     & \int e^x \dd x                          &  & = \cancelto{1}{x'} \cdot e^x + C                 \\
+     & \int a^x \dd x                          &  & = \frac{a^x}{\ln (a)} + C                        \\
+     & \int \frac{1}{2 \sqrt{x}}	\dd x         &  & = \sqrt{x} + C                                   \\
+  \end{align*}
+
+  \subsection{Integración por partes}
+  Susana un día vio un valiente soldadito vestido de uniforme.
+  \[ \int u\ \dd v = uv - \int v\ \dd u \]
+
+  \subsection{Identidades trigonométricas}
+  \begin{align*}
+    1         & = \sen^2 (x) + \cos^2(x)                     \\
+    \sen (2x) & =2 \sen(x) \cos(x)                           \\
+    \cos (2x) & = \cos^2(x) - \sen^2(x)                      \\
+    \sen (x)  & = \sqrt{\frac{1 - \cos (2x)}{2}}             \\
+    \cos (x)  & = \sqrt{\frac{1 + \cos (2x)}{2}}             \\
+    \tg (x)   & = \sqrt{\frac{1 - \cos (2x)}{1 + \cos (2x)}} \\
+  \end{align*}
+
+\end{multicols}
+
+\end{document}
