@@ -11,6 +11,7 @@
 \usepackage{physics}
 \usepackage{enumitem}
 \usepackage{circuitikz}
+\usepackage{graphicx}
 
 % For Excel2LaTeX tables
 \usepackage{xcolor}
@@ -96,19 +97,27 @@
     E_d                          & \equiv \text{Tensión directa}                                      \\
     E_r                          & \equiv \text{Tensión reverberante}                                 \\
     E_{ro}                       & \equiv \text{Tensión reverberante del equivalente omnidireccional} \\
-  \end{align*}
+  \end{align*}.
+
   Si especifican que se ha medido en cámara anecoica, entonces se refiere a que $E_{\text{c.a.}}$ es también el valor de $E_d$.
-  \[ E_r  = \frac{p_r S_0}{\sqrt{Q _{\textnormal{ax}}}} \qquad  E_{ro} = p_r S \]
+  \begin{align*}
+    p_d (r) & = \frac{p (\qty{1}{\metre } )}{r} \qquad E_d = p_d (r) S                                                                  \\
+    E_r     & = \frac{p_r S_0}{\sqrt{Q _{\textnormal{ax}}}} \qquad \langle E_d^2(\theta, \varphi) \rangle = E_r^2 \qquad E_{ro} = p_r S
+  \end{align*}
+  La distancia crítica $r_c$ es la distancia a partir de la cual la presión reverberante es igual a la directa. En ella sucede que:
+  \[ p_r = p_d = \sqrt{2} p_{r+d} \qquad\qquad E_{r+d}  = \sqrt{E_r ^2 + E_d ^2} \]
+  Recordamos que es suma no coherente por ser campo difuso.
+  \begin{align*}
+    D( \theta)          & = \frac{S(\theta)}{S_0 } \qquad Q(\theta, \varphi ) = Q _{\textnormal{ax}} D^2                                                    (\theta, \varphi )                                                                              \\
+    Q(\theta, \varphi ) & = \frac{S^2(\theta, \varphi )}{\langle S^2(\theta, \varphi) \rangle} = \frac{S^2(\theta, \varphi )}{\frac{1}{4\pi} \int_{\varphi = 0}^{2\pi} \int_{\theta = 0}^{\pi} S^2(\theta, \varphi) \sin (\theta ) \dd \theta \dd \varphi } \\
+    Q_{\textnormal{ax}} & = Q(\theta = \ang{0}) = \frac{2}{\int_{\theta = 0}^{\pi} D^2(\theta) \sin (\theta ) \dd \theta } \approx \frac{2}{\frac{\pi}{N} \sum _{i=1}^{N} D^2(\theta _i) \sin (\theta i)}                                                   \\
+    Q_{\textnormal{ax}} & = \frac{E^2_{ro}} {E^2_r} \eval*{}_{\text{campo difuso}} \quad \text{DI} = 10 \log \left[ Q( \theta, \varphi) \right] \qquad \text{DI} _{\textnormal{ax}} = 10 \log \left( Q_{\textnormal{ax}} \right)                            \\
+    \text{REE}          & = \frac{1}{Q_ {\textnormal{ax}}} \qquad \text{DSF} = \sqrt{Q_{\textnormal{ax}}}                                                                                                                                                   \\
+  \end{align*}
+
   \textbf{Nota 1:} En la fórmula de $Q_{\textnormal{ax}}$ para $N$ valores, si nos dicen que supongamos simetría de revolución se usan los valores entre $\theta = \ang{0}$ y $\theta = \ang{180}$, sin incluir este último. Si da tiempo (y en entornos reales), se calculan tanto en el intervalo $[0, 180)$ como en $[180, 360)$ y se hace la media entre ambos $Q_{\textnormal{ax}}$ obtenidos.
 
   \textbf{Nota 2:} Si nos piden sacar la directividad sabiendo que es de familia cardioide y no dicen nada más, debemos suponer orden $n=1$.
-  \begin{align*}
-    D( \theta, \varphi ) & = \frac{S(\theta, \varphi )}{S_0 }                                                                                                                                                                                                \\
-    Q(\theta, \varphi )  & = \frac{S^2(\theta, \varphi )}{\langle S^2(\theta, \varphi) \rangle} = \frac{S^2(\theta, \varphi )}{\frac{1}{4\pi} \int_{\varphi = 0}^{2\pi} \int_{\theta = 0}^{\pi} S^2(\theta, \varphi) \sin (\theta ) \dd \theta \dd \varphi } \\
-    Q_{\textnormal{ax}}  & = Q(\theta = \ang{0}) = \frac{2}{\int_{\theta = 0}^{\pi} D^2(\theta) \sin (\theta ) \dd \theta } \approx \frac{2}{\frac{\pi}{N} \sum _{i=1}^{N} D^2(\theta _i) \sin (\theta i)}                                                   \\
-    Q_{\textnormal{ax}}  & = \frac{E^2_{ro}} {E^2_r} \eval*{}_{\text{campo difuso}} \qquad \text{DI} = 10 \log \left[ Q( \theta, \varphi) \right] \qquad \text{DI} _{\textnormal{ax}} = 10 \log \left( Q_{\textnormal{ax}} \right)                           \\
-    \text{REE}           & = \frac{1}{Q_ {\textnormal{ax}}} \qquad \text{DSF} = \sqrt{Q_{\textnormal{ax}}}                                                                                                                                                   \\
-  \end{align*}
   \subsubsection{Directividad de la familia cardiode}
   $A$ es el componente omnidireccional, $B$ el componente bidireccional y $n$ el orden de la directividad.
 
@@ -162,12 +171,58 @@
     \text{Margen de sobrecarga}   & \qquad \text{HR} = \text{SPL}_{\text{máx}} - 94 \ (\text{viene de } p _{\textnormal{ref}}) \\
     \text{Relación señal a ruido} & \qquad \text{SNR} = \text{DR} - \text{HR} = 94 - \text{ENL}
   \end{align*}
-  \subsubsection{Otras características}
-
   \subsection{Tipos de micrófonos}
   \subsubsection{TAM: Micrófonos de presión}
+  La cápsula está compuesta por un diafragma y un pequeño orificio de ecualización, que sirve para regular la presión interna. La vibración del diafragma es proporcional a la presión acústica externa ejercida sobre el diafragma.
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{Mic de presión.png}
+  \end{center}
+  Presentan un comportamiento omnidireccional, excepto a alta frecuencia debido a difracción cuando $\lambda >> D$, siendo $D$ la mayor dimensión del micrófono. Para $\theta = \pm \ang{90}$, la directividad disminuye ligeramente por falta de uniformidad. Para $\theta = \ang{180}$, la directividad disminuye ligeramente por la sombra que genera la cápsula.
+
   \subsubsection{TAM: Micrófonos de gradiente de presión}
-  \subsubsection{TAM: Micrófonos combinados de presión - gradiente de presión}
+
+  La presión en la cara interna del diafragma es aproximadamente igual que en la cara externa. La diferencia de caminos acústicos entre ambas caras es la que hace que no sean iguales. Por lo tanto existe un incremento muy pequeño de presión entre ambas caras, es decir, un diferencial. De ahí viene el término gradiente de presión.
+  \vspace*{\fill}
+  \begin{center}
+    \includegraphics[width=0.4\linewidth]{Mic grad de presión.png}
+  \end{center}
+
+  El \textbf{efecto proximidad} sucede cuando $kx << 1$ e implica que para bajas frecuencias (o micro muy cerca de la fuente) las ondas presentan divergencia esférica. Es decir, acercar el micro a la fuente incrementará la tensión generada. Esto no sucede para agudos porque $kx >> 1$ y las ondas son planas (sin divergencia esférica).
+  \includegraphics[width=\linewidth]{Gradiente de presión.png}
+
+  \[ \left\lbrace
+    \begin{matrix*}[l]
+      \lambda >> \Delta L & \longrightarrow D (\theta ) = \cos (\theta )\\
+      \lambda << \Delta L & \longrightarrow \abs{D (\theta )} = \abs{\sin \left( \frac{k \Delta L \cos (\theta)}{2} \right)}
+    \end{matrix*} \right. \]
+
+  Como el efecto proximidad sucede si $kx << 1$, entonces $f _{\textnormal{prox}} = \frac{c}{2 \pi x}$. Teniendo que $F$ es la fuerza ejercida sobre el diafragma, entonces:
+
+  \begin{align*}
+    F                      & = 2jp e^{- \frac{jk \Delta L \cos (\theta)}{2}} \sin \left( \frac{k \Delta L \cos (\theta)}{2} \right) S_d \\
+    G _{\textnormal{prox}} & = \frac{F}{F _{\textnormal{ondas planas}}} = \frac{1 + jkx}{jkx}
+  \end{align*}
+
+  \subsubsection{TAM: Micrófonos combinados de presión/gradiente de presión}
+  Son como los micrófonos de presión cambiando el orificio de ecualización por una abertura de mayor tamaño, conformando un sistema acústico. El principio de funcionamiento es el mismo que los micrófonos de gradiente de presión.
+  \begin{align*}
+     & \left( k \dd L << 1 \right) \equiv \left( \dd L << \lambda \right)                                                             \\
+     & \left\lbrace
+    \begin{matrix*}[l]
+      k \dd L << 1 & \longrightarrow D (\theta ) = \frac{K + \cos (\theta)}{K + 1}                                                      \\
+      k \dd L >> 1 & \longrightarrow \abs{D (\theta )} = \abs{\sin \left( \frac{k\Delta L \left[ \cos (\theta + K) \right]}{2} \right)}
+    \end{matrix*} \right. \\
+     & \left\lbrace
+    \begin{matrix*}[l]
+      K = 1 \ \rightarrow \text{ cardioide} \\
+      K = \frac{1}{3} \ \rightarrow \text{ hipercardioide} \\
+      K = 0 \ \rightarrow \text{ bidireccional} \\
+      K > 1 \ \rightarrow \text{ subcardioide}
+    \end{matrix*}
+    \right.  \qquad  A = \frac{K}{K + 1} \qquad B = \frac{1}{K + 1}
+  \end{align*}
+  \[ F = 2jp e^{- \frac{jk \Delta L \cos (\theta)}{2}} \sin \left( \frac{k \Delta L \cos (\theta)}{2} \right) S_d \]
+
   \subsubsection{TME: Micrófonos de bobina móvil}
   \subsubsection{TME: Micrófonos de cinta}
   \subsubsection{TME: Micrófonos electrostáticos de condensador}
@@ -176,9 +231,29 @@
   \subsubsection{Especiales: Micrófonos de doble diafragma}
   \subsubsection{Especiales: Micrófonos superdirectivos}
   \subsubsection{Especiales: Micrófonos lavalier}
-  \subsubsection{Especiales: Microfonía estereofónica}
   \subsubsection{Especiales: Micrófonos de superficie o de zona de presión}
   \subsubsection{Especiales: Micrófonos inalámbricos}
+  \subsubsection{Técnica M/S}
+  Un micro cardioide y otro bidireccional.
+  \begin{align*}
+    S_R (\theta ) & = S_M (\theta ) + S_S (\theta ) \\
+    S_L (\theta ) & = S_M (\theta ) - S_S (\theta )
+  \end{align*}
+
+  \subsubsection{Técnica XY}
+  Micros coincidentes, con ángulo de separación $\alpha$.
+  \begin{align*}
+    S_R (\theta ) & = S(\theta - \alpha ) \\
+    S_L (\theta ) & = S(\theta + \alpha )
+  \end{align*}
+  Para obtener canales M y S:
+  \begin{align*}
+    S_{M0}         & = 2 S_0 \left[A + B \cos (\alpha ) \right]                                     \\
+    S_{S0}         & = 2 S_0 B \sin (\alpha )                                                       \\
+    S_M ( \theta ) & = S_R ( \theta ) + S_L ( \theta ) = S_{M0} \left[ A + B \cos (\theta ) \right] \\
+    S_S ( \theta ) & = S_R ( \theta ) - S_L ( \theta ) = S_{S0} \sen (\theta )
+  \end{align*}
+
 
   \subsection{Conexión eléctrica de los micrófonos}
   \subsubsection{Impedancias características}
