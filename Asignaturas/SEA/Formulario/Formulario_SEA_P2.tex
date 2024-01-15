@@ -12,9 +12,10 @@
 \usepackage{enumitem}
 \usepackage{circuitikz}
 \usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{xspace}
 
 % For Excel2LaTeX tables
-\usepackage{xcolor}
 \usepackage{colortbl}
 \usepackage{booktabs}
 
@@ -71,6 +72,8 @@
   La respuesta en frecuencia de un micrófono es la \textbf{variación de la sensibilidad con la frecuencia} $\left[ S = S(f) \right]$. Se suele representar la respuesta relativa con respecto a la sensibilidad de referencia en decibelios.
   \[ S(f) - S_0 = 20 \log \left( \frac{\abs{S(f)}}{\abs{S_0}} \right) \ \unit{\dB} \]
   La presencia del micrófono afecta a su respuesta. La respuesta del diafragma en alta frecuencia aumenta la presión frente a la cápsula.
+
+  \color{red}\xspace
   \subsubsection{Distorsión lineal}
   \begin{itemize}
     \item \textbf{Coloraciones.} La respuesta en frecuencia no es plana.
@@ -84,6 +87,7 @@
     \item \textbf{Saturación.} Sobrecarga de presión. Si saturan fácilmente se llaman micros \textit{blandos}. Si no, \textit{duros}.
     \item \textbf{Pop.} Chorros de aire (no sonido). Suele ser por fonemas ``explosivos''.
   \end{itemize}
+  \color{black}\xspace
   \subsubsection{Directividad}
   Generalmente, su supone simetría cilíndrica de los micrófonos, por lo que la directividad no depende del plano azimutal $\varphi$.
   \begin{align*}
@@ -104,8 +108,11 @@
     p_d (r) & = \frac{p (\qty{1}{\metre } )}{r} \qquad E_d = p_d (r) S                                                                  \\
     E_r     & = \frac{p_r S_0}{\sqrt{Q _{\textnormal{ax}}}} \qquad \langle E_d^2(\theta, \varphi) \rangle = E_r^2 \qquad E_{ro} = p_r S
   \end{align*}
-  La distancia crítica $r_c$ es la distancia a partir de la cual la presión reverberante es igual a la directa. En ella sucede que:
-  \[ p_r = p_d = \sqrt{2} p_{r+d} \qquad\qquad E_{r+d}  = \sqrt{E_r ^2 + E_d ^2} \]
+  La distancia crítica $r_c$ es la distancia a partir de la cual la presión reverberante es igual a la directa. En ella la tensión total y presión total serán:
+  \begin{align*}
+    E_{t}           & = \sqrt{E_r ^2 + E_d ^2}                   & p_0 = p_r = p_d = \frac{p_{t}}{\sqrt{2}} \\
+    E_{t} (\theta ) & = p_0 S_0 \sqrt{D^2(\theta ) + \text{REE}}
+  \end{align*}
   Recordamos que es suma no coherente por ser campo difuso.
   \begin{align*}
     D( \theta)          & = \frac{S(\theta)}{S_0 } \qquad Q(\theta, \varphi ) = Q _{\textnormal{ax}} D^2                                                    (\theta, \varphi )                                                                              \\
@@ -147,7 +154,7 @@
 
   \[ Q _{\textnormal{ax}} = \frac{3}{4B^2 - 6B + 3} \]
 
-
+  \color{red}\xspace
   \subsubsection{Ruido eléctrico}
 
   \begin{itemize}
@@ -171,6 +178,7 @@
     \text{Margen de sobrecarga}   & \qquad \text{HR} = \text{SPL}_{\text{máx}} - 94 \ (\text{viene de } p _{\textnormal{ref}}) \\
     \text{Relación señal a ruido} & \qquad \text{SNR} = \text{DR} - \text{HR} = 94 - \text{ENL}
   \end{align*}
+  \color{black}\xspace
   \subsection{Tipos de micrófonos}
   \subsubsection{TAM: Micrófonos de presión}
   La cápsula está compuesta por un diafragma y un pequeño orificio de ecualización, que sirve para regular la presión interna. La vibración del diafragma es proporcional a la presión acústica externa ejercida sobre el diafragma.
@@ -234,24 +242,28 @@
   \subsubsection{Especiales: Micrófonos de superficie o de zona de presión}
   \subsubsection{Especiales: Micrófonos inalámbricos}
   \subsubsection{Técnica M/S}
-  Un micro cardioide y otro bidireccional.
+
+  \includegraphics[width=0.8\linewidth]{Micros MS.png}
+  Un micro cardioide y otro bidireccional. El ángulo $\alpha $ (que en las figuras aparece como $\alpha _{RL}$) representa el ángulo del cardioide producido con respecto al eje del conjunto de micrófonos.
   \begin{align*}
-    S_R (\theta ) & = S_M (\theta ) + S_S (\theta ) \\
-    S_L (\theta ) & = S_M (\theta ) - S_S (\theta )
+    S_R (\theta )               & = S_M (\theta ) + S_S (\theta )                                                \\
+    S_L (\theta )               & = S_M (\theta ) - S_S (\theta )                                                \\
+    S_0                         & = S_{M0} \left( A_M + \frac{B_M}{\cos (\alpha )} \right)                       \\
+    \tan \left( \alpha  \right) & = \frac{S_{S0}}{B_M S_{M0}}                                                    \\
+    B                           & = \frac{B_M}{A_M \cos (\alpha ) + B_M}                                         \\
+    S_{M0}                      & = 2 S_0 \left[A_M + B_M \cos (\alpha ) \right]                                 \\
+    S_{S0}                      & = 2 S_0 B \sin (\alpha )                                                       \\
+    S_M ( \theta )              & = S_R ( \theta ) + S_L ( \theta ) = S_{M0} \left[ A + B \cos (\theta ) \right] \\
+    S_S ( \theta )              & = S_R ( \theta ) - S_L ( \theta ) = S_{S0} \sen (\theta )
   \end{align*}
 
   \subsubsection{Técnica XY}
   Micros coincidentes, con ángulo de separación $\alpha$.
   \begin{align*}
-    S_R (\theta ) & = S(\theta - \alpha ) \\
-    S_L (\theta ) & = S(\theta + \alpha )
-  \end{align*}
-  Para obtener canales M y S:
-  \begin{align*}
-    S_{M0}         & = 2 S_0 \left[A + B \cos (\alpha ) \right]                                     \\
-    S_{S0}         & = 2 S_0 B \sin (\alpha )                                                       \\
-    S_M ( \theta ) & = S_R ( \theta ) + S_L ( \theta ) = S_{M0} \left[ A + B \cos (\theta ) \right] \\
-    S_S ( \theta ) & = S_R ( \theta ) - S_L ( \theta ) = S_{S0} \sen (\theta )
+    S_R (\theta )  & = S(\theta - \alpha )             \\
+    S_L (\theta )  & = S(\theta + \alpha  )            \\
+    S_M ( \theta ) & = S_R ( \theta ) + S_L ( \theta ) \\
+    S_S ( \theta ) & = S_R ( \theta ) - S_L ( \theta )
   \end{align*}
 
 
