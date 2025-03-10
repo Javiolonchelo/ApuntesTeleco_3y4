@@ -1,0 +1,139 @@
+\documentclass[11pt]{article}
+\usepackage[spanish, es-tabla]{babel}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{fontspec}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[center]{caption}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titling}
+\usepackage[fixlanguage]{babelbib}
+\selectbiblanguage{spanish}
+\usepackage{subcaption}
+\captionsetup{labelfont=bf}
+% \captionsetup[table]{labelfont={bf},name={Tabla},labelsep=period}
+\usepackage{hyperref}
+\definecolor{blueX}{HTML}{3f84e4}
+\setmonofont{SFMonoRegular.otf}
+\usepackage[margin=2.8cm]{geometry}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{siunitx}
+\sisetup{
+    per-mode = fraction,
+    detect-all,
+    exponent-product = \cdot
+}
+\usepackage{enumitem}
+\usepackage{pdflscape}
+\usepackage[stylemods,style=super, nogroupskip, toc=false, hyperfirst=false, nonumberlist]{glossaries-extra}
+
+\setlength{\parindent}{0pt} % To avoid indentation
+\setabbreviationstyle[acronym]{long-short}
+\makenoidxglossaries
+\newglossary{difusion}{difusionin}{difusionout}{Glosario}
+\loadglsentries{glosario}
+
+% COLUMNAS Y FILAS MULTIPLES DENTRO DE TABLAS
+\usepackage{multirow, hhline}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\renewcommand{\listfigurename}{Figuras}
+\renewcommand{\listtablename}{Tablas}
+
+% \renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\thesubsubsection}{\alph{subsubsection}}
+
+\usepackage{titlesec}
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
+
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+\begin{document}
+
+\title{\textbf{Informe de evaluación de ruido debido a las operaciones de vuelo del aeropuerto\\Adolfo Suárez Madrid-Barajas}}
+\author{Javier Rodrigo López}
+\date{\today}
+\maketitle
+
+\pagenumbering{gobble}
+
+\fancypagestyle{firststyle}
+{
+    \fancyhead[L]{Acústica Ambiental}
+    \fancyhead[R]{\includegraphics[width=0.3\linewidth]{Imágenes/ETSIST.png}}
+    %\fancyfoot[R]{\includegraphics[width=0.08\linewidth]{Imágenes/Plantilla_IAC.png}\\Departamento de Ingeniería Audiovisual y Comunicaciones}
+}
+
+\thispagestyle{firststyle}
+
+% \newpage
+
+\fancyhead{}
+\pagestyle{fancy}
+
+\pagestyle{fancy}
+\fancyhead[L]{Acústica Ambiental}
+\fancyhead[R]{Curso 2024/25}
+
+%\newpage
+%\tableofcontents
+%\listoffigures
+\setcounter{figure}{0}
+\setlength{\parskip}{0.5em}
+
+\hypersetup{
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=blueX
+}
+
+\tableofcontents
+\listoffigures
+
+% IMPRIME ACRÓNIMOS, SIGLAS Y GLOSARIO
+%\glsaddall
+%\newpage
+%\printnoidxglossaries
+
+\newpage
+
+\pagenumbering{arabic}
+\setcounter{page}{2}
+
+\section{Introducción}
+
+Este informe forma parte de la Práctica 1 de la asignatura de Acústica Ambiental, impartida por el departamento de Ingeniería Audiovisual y Comunicaciones de la Escuela Técnica Superior de Ingenieros de Telecomunicación de la Universidad Politécnica de Madrid.
+
+El objetivo de este informe consiste en evaluar el ruido producido por las operaciones de vuelo del aeropuerto Adolfo Suárez Madrid-Barajas, motivado por la apertura de una nueva pista. Se han utilizado las normas \cite{ISO1996-2:2020} y \cite{ISO20906:2009} para la medición y evaluación del ruido.
+
+\section{Ensayo}
+\section{Equipos y materiales}
+\section{Mediciones y resultados}
+\section{Conformidad con la legislación vigente}
+
+
+\nocite{*}
+\newpage
+\bibliography{Bibliography}
+\bibliographystyle{IEEEtr}
+
+\end{document}

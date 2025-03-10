@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: P1.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+Reallocating 'name_of_file' (item size: 1) to 7 items.
+The style file: IEEEtr.bst
+Database file #1: Bibliography.bib
+Warning--empty year in ISO1996-2:2020
+Warning--empty year in ISO20906:2009
+You've used 2 entries,
+            1876 wiz_defined-function locations,
+            487 strings with 3816 characters,
+and the built_in function-call counts, 258 in all, are:
+= -- 22
+> -- 8
+< -- 0
++ -- 4
+- -- 2
+* -- 18
+:= -- 55
+add.period$ -- 2
+call.type$ -- 2
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 4
+duplicate$ -- 12
+empty$ -- 25
+format.name$ -- 2
+if$ -- 51
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 0
+newline$ -- 9
+num.names$ -- 2
+pop$ -- 6
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 2
+stack$ -- 0
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 2
+while$ -- 2
+width$ -- 3
+write$ -- 18
+(There were 2 warnings)
