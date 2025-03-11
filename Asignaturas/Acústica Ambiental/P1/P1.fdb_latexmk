@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex P1"] 1741655427 "P1.aux" "P1.bbl" "P1" 1741655432 0
+["bibtex P1"] 1741699449 "P1.aux" "P1.bbl" "P1" 1741699701 0
   "./Bibliography.bib" 1741646773 688 c24683301234ed2beb4de1f922f1013a ""
   "C:/Users/javiolonchelo/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/IEEEtr.bst" 1291864344 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "P1.aux" 1741655431 2024 bd63f3caf98973160865cd6eb6343434 "lualatex"
+  "P1.aux" 1741699700 3734 d6732b4e46e1dc45dd23b776978ab00e "lualatex"
   (generated)
   "P1.bbl"
   "P1.blg"
   (rewritten before read)
-["lualatex"] 1741655428 "c:/Users/javiolonchelo/Documents/GitHub/ApuntesTeleco_3y4/Asignaturas/Acústica Ambiental/P1/P1.tex" "P1.pdf" "P1" 1741655432 0
+["lualatex"] 1741699697 "c:/Users/javiolonchelo/Documents/GitHub/ApuntesTeleco_3y4/Asignaturas/Acústica Ambiental/P1/P1.tex" "P1.pdf" "P1" 1741699701 0
   "C:/Users/javiolonchelo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1741622960 384909 f7181b4c11b94dea4c80632e2fa9e819 ""
   "C:/Users/javiolonchelo/AppData/Local/MiKTeX/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1705191171 128432 75e257f5e3849f6cd25aed170e08c5a4 ""
   "C:/Users/javiolonchelo/AppData/Local/MiKTeX/luatex-cache/generic/fonts/otl/lmroman10-italic.luc" 1741622329 136334 7aaecd3dcf15823d5e9fa420aa7881cc ""
@@ -37,9 +37,14 @@
   "C:/Users/javiolonchelo/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy10.tfm" 1136765053 1124 6c73e740cf17375f03eec0ee63599741 ""
   "C:/Users/javiolonchelo/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Users/javiolonchelo/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
+  "C:/Users/javiolonchelo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247593067 30251 6afa5cb1d0204815a708a080681d4674 ""
   "C:/Users/javiolonchelo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247593067 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "C:/Users/javiolonchelo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1247593066 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "C:/Users/javiolonchelo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1247593066 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "C:/Users/javiolonchelo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247593067 35752 024fb6c41858982481f6968b5fc26508 ""
+  "C:/Users/javiolonchelo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1247593067 32734 69e00a6b65cedb993666e42eedb3d48f ""
+  "C:/Users/javiolonchelo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247593067 32726 39f0f9e62e84beb801509898a605dbd5 ""
+  "C:/Users/javiolonchelo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247593067 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/javiolonchelo/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/javiolonchelo/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty" 1696000293 148153 9c54923e1dc8a9549df289a28e494974 ""
   "C:/Users/javiolonchelo/AppData/Local/Programs/MiKTeX/tex/generic/babel/locale/es/babel-es.ini" 1696000296 4345 33a8cc6f0a7c6afcb84895b2c963a4e5 ""
@@ -229,13 +234,14 @@
   "C:/Users/javiolonchelo/AppData/Local/Programs/MiKTeX/tex/luatex/luaotfload/luaotfload.lua" 1693503166 13565 c514d92e6ff6be7b2f35d8e0eb56185c ""
   "C:/Users/javiolonchelo/AppData/Roaming/MiKTeX/tex/generic/config/language.dat" 1696773559 2269 c2be9efecb8e53facf8213ae101f16af ""
   "Imágenes/ETSIST.png" 1741620001 23806 3974daa77b34ec5b218b3506eb27a0c9 ""
-  "P1.aux" 1741655431 2024 bd63f3caf98973160865cd6eb6343434 "lualatex"
-  "P1.bbl" 1741655428 508 a51d5933c06452aff7ce4d60e2bd4418 "bibtex P1"
-  "P1.lof" 1741655431 30 1bb04962d39b6bda471ac6c46ce13f85 "lualatex"
-  "P1.out" 1741655431 740 736682091f172e692992f4d0c8fc0f2b "lualatex"
-  "P1.tex" 1741655422 7112 a21c98ef8e2fdca596bd242062f47132 ""
-  "P1.toc" 1741655431 411 ef127b6ef25428da102d1e11e8c13c91 "lualatex"
-  "c:/Users/javiolonchelo/Documents/GitHub/ApuntesTeleco_3y4/Asignaturas/Acústica Ambiental/P1/P1.tex" 1741655422 7112 a21c98ef8e2fdca596bd242062f47132 ""
+  "Imágenes/espectro.png" 1741698176 9052 7e299a2c3103501eb36f6f5aa6e4dca1 ""
+  "P1.aux" 1741699700 3734 d6732b4e46e1dc45dd23b776978ab00e "lualatex"
+  "P1.bbl" 1741699449 508 a51d5933c06452aff7ce4d60e2bd4418 "bibtex P1"
+  "P1.lof" 1741699700 142 58d20575361e4607dd2efe2ae0e66b1c "lualatex"
+  "P1.out" 1741699700 2191 dd0ebaf83e77c35180fdcd56639f9eac "lualatex"
+  "P1.tex" 1741699697 13113 b3fc9af5c494dfddcbf37956342ebbf1 ""
+  "P1.toc" 1741699700 1164 09fabc8db3439b4037607c75954ca1af "lualatex"
+  "c:/Users/javiolonchelo/Documents/GitHub/ApuntesTeleco_3y4/Asignaturas/Acústica Ambiental/P1/P1.tex" 1741699697 13113 b3fc9af5c494dfddcbf37956342ebbf1 ""
   "glosario.tex" 1741620001 1065 9a25ab699ed5fb26b91d4bbcbc5d22d8 ""
   (generated)
   "P1.aux"
